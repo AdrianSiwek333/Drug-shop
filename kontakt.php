@@ -1,5 +1,6 @@
 <?php
 include('header.php');
+include('kod.php');
 ?>
 <main>
     <div class="contact">
@@ -43,7 +44,7 @@ include('header.php');
                                         <input type="submit" name="wyslij" value="Prześlij" class="formSubmit" />
                                     </div>
                                 </div>
-                                <h1><?php echo $wyslano?></h1>
+                                <h1><?php if(isset($_POST['wyslij'])){echo $wyslano;}?></h1>
                             </div>
                         </form>
                     </div>
