@@ -1,7 +1,6 @@
   <?php
     include('header.php');
     ?>
-
 <main>
     <div class="container">
         <div class="row">
@@ -50,7 +49,9 @@
                 <div class="productSlickInfo">
                     <img src="<?=$row['image']?>">
                     <p><?=$row['product_name']?></p>
-                    <a class="buttonBlue" href="product.php">Sprawdź</a>
+                    <form method="get" action="product.php">
+                    <input type="submit" name="produkt" value="<?=$row['product_id']?>" class="buttonBlue"/>
+                    </form>
                 </div>
                     <?php
                     }
