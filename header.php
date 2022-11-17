@@ -23,6 +23,7 @@
     <script type="text/javascript" src="script.js"></script>
     <?php
     include('db_con.php');
+    include('kod.php');
     ?>
 </head>
 <body>
@@ -45,8 +46,20 @@
                     <li class="nav-item">
                         <a class="nav-link" href="nasze-produkty.php">Nasze produkty</a>
                     </li>
+ 
                     <li class="nav-item">
                         <a class="nav-link" href="kontakt.php">Kontakt</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.php">Zaloguj</a>
+                    </li>
+                        <a class="nav-link" href="register.php">Rejestracja</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cart.php">Koszyk
+                        <i class="bi bi-bag"></i>   
+
+                        </a>
                     </li>
                 </ul>
             </div>
