@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row">
                 <?php
-                    $id=$_GET['produkt'];
+                    $id=$_POST['produkt'];
                     $stmt=$db_con->query("SELECT * from products where product_id='$id'");
                     while($row=$stmt->fetch()){  
                         $cat_id=$row['category_id'];
