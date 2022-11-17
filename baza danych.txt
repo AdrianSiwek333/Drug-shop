@@ -1,3 +1,4 @@
+DROP DATABASE if exists shop;
 CREATE database shop;
 use shop;
 
@@ -44,6 +45,21 @@ CREATE TABLE orders(
     order_date date not null,
     PRIMARY key(order_id)
     );
+
+    CREATE TABLE o_nas_posts(
+        post_id int AUTO_INCREMENT not null,
+        title varchar(500) not null,
+        text blob(1000) not null,
+        image varchar(70) not null,
+        PRIMARY KEY(post_id)
+    );
+        CREATE TABLE main_posts(
+        post_id int AUTO_INCREMENT not null,
+        title varchar(500) not null,
+        text blob(1000) not null,
+        image varchar(70) not null,
+        PRIMARY KEY(post_id)
+    );
   
 INSERT INTO categories(category_name, description) VALUES
 ('Piguły', 'Bardzo smaczne'),
@@ -53,21 +69,21 @@ INSERT INTO categories(category_name, description) VALUES
 ('Suplementy', '');
 
 INSERT INTO products(product_name, price, quantity, category_id, image, description) VALUES
-('Pigula 3002', 20, 10, 1, 'image',''),
-('Bernadrill', 70, 30, 3, 'image',''),
-('Ohio', 60, 30, 3, 'image',''),
-('The Zbuczyn Special', 50, 5, 3, 'image',''),
-('Polski Lean', 150, 20, 2, 'image',''),
-('Neptunki', 34.99, 99, 5, 'image',''),
-('Antibioticos Banditos', 79.99, 25, 4,'image',''),
-('Rumianek', 199.99, 200, 3, 'image', ''),
-('Szałwia', 134.99, 100, 3, 'image', 'Swieżo mielona'),
-('Novoscorbin', 49.99, 15, 1, 'image', ''),
-('Syrop 2077', 59.99, 20, 2, 'image', ''),
-('Lisak', 9.99, 220, 5, 'image',''),
-('Sok z gumijerzyn', 29.99, 15, 2, 'image', 'Nożnie wyciskany'),
-('Kociołex', 42.01, 19, 4, 'image', 'Leczy uzależnienia'),
-('Zuplement', 349.11, 3, 5, 'image', 'Jest git');
+('Pigula 3002', 20, 10, 1, 'pictures/produkt1.jpg',''),
+('Bernadrill', 70, 30, 3, 'pictures/produkt1.jpg',''),
+('Ohio', 60, 30, 3, 'pictures/produkt1.jpg',''),
+('The Zbuczyn Special', 50, 5, 3, 'pictures/produkt1.jpg',''),
+('Polski Lean', 150, 20, 2, 'pictures/produkt1.jpg',''),
+('Neptunki', 34.99, 99, 5, 'pictures/produkt1.jpg',''),
+('Antibioticos Banditos', 79.99, 25, 4,'pictures/produkt1.jpg',''),
+('Rumianek', 199.99, 200, 3, 'pictures/produkt1.jpg', ''),
+('Szałwia', 134.99, 100, 3, 'pictures/produkt1.jpg', 'Swieżo mielona'),
+('Novoscorbin', 49.99, 15, 1, 'pictures/produkt1.jpg', ''),
+('Syrop 2077', 59.99, 20, 2, 'pictures/produkt1.jpg', ''),
+('Lisak', 9.99, 220, 5, 'pictures/produkt1.jpg',''),
+('Sok z gumijerzyn', 29.99, 15, 2, 'pictures/produkt1.jpg', 'Nożnie wyciskany'),
+('Kociołex', 42.01, 19, 4, 'pictures/produkt1.jpg', 'Leczy uzależnienia'),
+('Zuplement', 349.11, 3, 5, 'pictures/produkt1.jpg', 'Jest git');
 
 INSERT INTO customers (fname, lname, town, address, user_id) VALUES
 ('Dawid', 'Tchorzewski', 'Zbuczyn', 'Ulica 66', 1),
@@ -83,6 +99,15 @@ INSERT INTO users (email, password) VALUES
 ('as4@m.pl','Adrjan4'),
 ('lj5@m.pl','Lila5')
 ;
-    
+
+INSERT INTO o_nas_posts (title, text, image) VALUES
+('post1','Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'pictures/produkt1.jpg'),
+('post2','Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'pictures/produkt1.jpg'),
+('post3','Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'pictures/produkt1.jpg');
+
+INSERT INTO main_posts (title, text, image) VALUES
+('post1','Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'pictures/produkt1.jpg'),
+('post2','Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'pictures/produkt1.jpg'),
+('post3','Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'pictures/produkt1.jpg');
 
 
