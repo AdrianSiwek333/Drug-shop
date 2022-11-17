@@ -10,12 +10,51 @@
 body{
     font-family: 'Roboto', sans-serif;
 }
-.logo img{
-    height: 150px;
+.logo img{  
+    height: 60px;
     width: auto;
 }
+
+.loginbtn{
+    font-size: 14px;
+}
+.loginbtn a{
+    color: #413c3c;
+    text-decoration: none;
+}
+.loginbtn a:after {
+    display:block;
+    content: '';
+    border-bottom: 1.5px solid #160d0d;
+
+    transform: scaleX(0);
+    transition: transform 0.7s ease-in-out;
+}
+.loginbtn a:hover:after{
+    transform: scaleX(1);
+}
+
+.buttonAdd{
+    margin: 10px 10px;
+    width: 100%;
+    padding: 10px 1px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    transition: all 250ms ease-in-out;
+    border: 3px solid #a1daff;
+    text-decoration: none;
+    color: #000000;
+}
+.buttonAdd:hover{
+    background-color: #3ca3e6;
+    color: #FFFFFF;
+}
+    
+
+
+
 .menuTop{
-    font-size: 32px;
+    font-size: 20px;
 }
 .menuTop a{
     color: #FFFFFF;
@@ -35,8 +74,8 @@ body{
     text-shadow: 4px 4px 4px #000000;
 }
 .menuTop ul li{
-    padding: 0 15px;
-    margin: 0 5px;
+    padding: 0 5px;
+    margin: 0 3px;
 }
 .menuTop .menu-menu-1-container{
     height: 100%;
@@ -49,9 +88,13 @@ body{
     flex-direction: row;
     justify-content: space-between;
 }
+.login{
+    background-color: #3ca3e6;
+}
 .mainMenu{
     background-color: #3ca3e6;
 }
+
 .siteTitle{
     color: #FFFFFF;
     display: flex;
