@@ -65,7 +65,7 @@
                                 </div>
                                 <h4><?=$row['product_name']?></h4>
                                 <form action="product.php" method="post">
-                                <input type="submit" name="produkt" value="<?=$row['product_id']?>" class="buttonBlue"/>
+                                <button type="submit" name="produkt" value="<?=$row['product_id']?>" class="buttonBlue">Sprawdz</button>
                             </form>
                                 </div>
                                 <?php                        
