@@ -29,5 +29,32 @@ if(isset($_POST['wyslij']))
     }
 }
 
+if(isset($_POST['register']))
+{
+    $email = $_POST['email'];
+    $login = $_POST['login'];
+    $fname = $_POST['fname'];
+    $lname = $_POST['lname'];
+    $password = $_POST['password'];
 
+    $query = "INSERT INTO users(email, login, fname, lname, password) VALUES (:email, :login, :fname, :lname, :password)";
+    $query_run=$db_con->prepare($query);
+
+    $data = [
+        ':email'=>$email,
+        ':login'=>$login,
+        ':fname'=>$fname,
+        ':lname'=>$lname,
+        ':password'=>$password,
+    ];
+    $query_execute = $query_run->execute($data);
+
+    if($query_execute)
+    {
+        $rejestracja='Zarejestrowano';
+    }
+    else{
+        $rejestracja='Błąd. Spróbuj ponownie.';
+    }
+}
 ?>
