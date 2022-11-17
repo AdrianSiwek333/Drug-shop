@@ -24,8 +24,6 @@
                 <div class="form-label" for="typePasswordX">Password</div>
               </div>
 
-              <p class="small mb-5 pb-lg-2  loginbtn "><a class="text-dark-50" href="register.php">Forgot password?</a></p>
-
               <button class="buttonBlue buttonSearch" type="submit">Login</button>
 
            
