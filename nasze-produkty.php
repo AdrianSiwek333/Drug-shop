@@ -57,13 +57,18 @@
                                 $stmt = $db_con->query("SELECT * FROM products WHERE product_name like '".$_POST['search']."%'");
                             }
                             while ($row = $stmt->fetch()) {
-                                echo "<div class='col-md-12 col-lg-6 col-xxl-4 productsShowcase active'>";
-                                echo "<div class='imgShowcase'>";
-                                echo "<img src='".$row['image']."' class='img-fluid' alt='Zdjęcie produktu'>";
-                                echo "</div>";
-                                echo "<h4>".$row['product_name']."</h4>";
-                                echo '<a class="buttonBlue" href="product.php">Sprawdź</a>';
-                                echo "</div>";                            
+
+                                ?>
+                                <div class='col-md-12 col-lg-6 col-xxl-4 productsShowcase active'>
+                                <div class='imgShowcase'>
+                                <img src="<?=$row['image']?>" class='img-fluid' alt='Zdjęcie produktu'>
+                                </div>
+                                <h4><?=$row['product_name']?></h4>
+                                <form action="product.php" method="post">
+                                <input type="submit" name="produkt" value="<?=$row['product_id']?>" class="buttonBlue"/>
+                            </form>
+                                </div>
+                                <?php                        
                             }
                             ?>
 
