@@ -60,6 +60,15 @@ CREATE TABLE orders(
         image varchar(70) not null,
         PRIMARY KEY(post_id)
     );
+        CREATE TABLE contact(
+        contact_id int AUTO_INCREMENT not null,
+        title varchar(500) not null,
+        text blob(1000) not null,
+        name varchar(70) not null,
+        surname varchar(70) not null,
+        email varchar(70) not null,
+        PRIMARY KEY(contact_id)
+    );
   
 INSERT INTO categories(category_name, description) VALUES
 ('Piguły', 'Bardzo smaczne'),
