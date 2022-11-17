@@ -104,9 +104,10 @@
                             while ($row = $stmt->fetch()) {
                                 echo "<div class='col-md-12 col-lg-6 col-xxl-4 active'>";
                                 echo "<div class='imgShowcase'>";
-                                echo "<img src='".$row['image']."' alt='Zdjęcie produktu'>";
+                                echo "<img src='".$row['image']."' class='img-fluid' alt='Zdjęcie produktu'>";
                                 echo "</div>";
                                 echo "<h4>".$row['product_name']."</h4>";
+                                echo '<a class="buttonBlue" href="product.php">Sprawdź</a>';
                                 echo "</div>";                            
                             }
                             /*
