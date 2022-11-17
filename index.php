@@ -62,44 +62,50 @@
         </div>
         <div class="row">
             <div class="col-md-12">
+
+            <?php
+            $stmt=$db_con->query('SELECT * from main_posts');
+            while($row=$stmt->fetch())
+            {
+
+?>
                 <div class="card mb-3 entryBody">
                     <div class="row g-0">
                         <div class="col-md-4">
-                            <img src="pictures/wpis-placeholder.jpg" class="img-fluid rounded-start" alt="...">
+                            <img src="<?= $row['image']?>" class="img-fluid rounded-start" alt="...">
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
-                                <h5 class="card-title">Wpis</h5>
-                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget venenatis tellus, non pharetra est. Nam at purus id quam feugiat scelerisque non id sem. Donec ac odio orci. Sed elit enim, bibendum nec arcu non, venenatis iaculis velit. Maecenas scelerisque vitae lacus id fringilla. Morbi quis magna pellentesque velit congue eleifend a rutrum arcu. Pellentesque faucibus eget dui non pretium. Mauris condimentum massa at gravida blandit. Donec elit lectus, lobortis a purus vitae, porttitor aliquam libero. Cras rutrum aliquam leo, at ultrices libero blandit vel. Nam nec risus odio. Aliquam condimentum tortor quam, non vehicula felis convallis eu. Nam luctus accumsan porta. Praesent a varius elit, vehicula egestas sem. Nam tempus velit sit amet arcu congue dictum. Proin tristique vitae ligula ac feugiat. Suspendisse ultrices malesuada ex at consequat. In congue vel elit vulputate imperdiet. Morbi fringilla neque et urna lobortis, a placerat nunc malesuada. Suspendisse eu mattis tortor. Vivamus ultricies mi non augue rutrum porttitor. Duis et rhoncus massa. Fusce porta erat in erat feugiat, eu dignissim nibh lobortis. Sed a venenatis sem, eget porta elit. Aenean nec mauris erat. Phasellus sit amet egestas purus, vitae mattis lorem. Mauris nec tincidunt nisi. Ut condimentum mattis aliquet.</p>
+                                <h5 class="card-title"><?=$row['title']?></h5>
+                                <p class="card-text"><?=$row['text']?></p>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <?php
+            }
+            ?>
             </div>
             <div class="siteSpliter">
 
             </div>
             <div class="slickProduct">
+
+            <?php
+
+                    $stmt=$db_con->query("SELECT * from products");
+                    while($row=$stmt->fetch()){
+
+                    ?>
                 <div class="productSlickInfo">
-                    <img src="pictures/m011t167_nasal_spray_01.jpg">
-                    <p>Anty-Katar</p>
-                    <a class="buttonBlue" href="anty-katar.php">Sprawdź</a>
+                    <img src="<?=$row['image']?>">
+                    <p><?=$row['product_name']?></p>
+                    <a class="buttonBlue" href="product.php">Sprawdź</a>
                 </div>
-                <div class="productSlickInfo">
-                    <img src="pictures/20_Sep-Dropper_Bottle_03.jpg">
-                    <p>Anty-Bóle brzucha</p>
-                    <a class="buttonBlue" href="anty-bol-brzucha.php">Sprawdź</a>
-                </div>
-                <div class="productSlickInfo">
-                    <img src="pictures/m018t041_march_0122_medicine_bottle_mockup_01.jpg">
-                    <p>Anty-Ból głowy</p>
-                    <a class="buttonBlue" href="anty-bol-glowy.php">Sprawdź</a>
-                </div>
-                <div class="productSlickInfo">
-                    <img src="pictures/m020t022_feb1822_pill_jar_01.jpg">
-                    <p>Anty-Kaszel</p>
-                    <a class="buttonBlue" href="anty-kaszel.php">Sprawdź</a>
-                </div>
+                    <?php
+                    }
+                    ?>
             </div>
         </div>
     </div>
