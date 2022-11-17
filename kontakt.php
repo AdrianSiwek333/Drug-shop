@@ -1,6 +1,6 @@
 <?php
-    include('header.php');
-    ?>
+include('header.php');
+?>
 <main>
     <div class="contact">
         <div class="map">
@@ -18,37 +18,32 @@
                 <div class="row">
                     <div class="col-lg-12 col-xl-8">
                         <form action="" method="post" class="wpcf7-form init" novalidate="novalidate" data-status="init">
-                            <div style="display: none;">
-                                <input type="hidden" name="_wpcf7" value="31" />
-                                <input type="hidden" name="_wpcf7_version" value="5.5.6" />
-                                <input type="hidden" name="_wpcf7_locale" value="pl_PL" />
-                                <input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f31-o1" />
-                                <input type="hidden" name="_wpcf7_container_post" value="0" />
-                                <input type="hidden" name="_wpcf7_posted_data_hash" value="" />
-                            </div>
                             <div class="row">
                                 <div class="col-6">
-                                    <span class="wpcf7-form-control-wrap text-1"><input type="text" name="text-1" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required formName" aria-required="true" aria-invalid="false" placeholder="Imię" /></span>
+                                    <input type="text" name="name" value="" size="40" placeholder="Imię" />
                                 </div>
                                 <div class="col-6">
-                                    <span class="wpcf7-form-control-wrap text-2"><input type="text" name="text-2" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required formSurname" aria-required="true" aria-invalid="false" placeholder="Nazwisko" /></span>
+                                    <input type="text" name="surname" value="" size="40" placeholder="Nazwisko" />
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-6">
-                                    <span class="wpcf7-form-control-wrap email-4"><input type="email" name="email-4" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email formEmail" aria-required="true" aria-invalid="false" placeholder="Adres e-mail" /></span>
+                                    <input type="email" name="email" value="" size="40" placeholder="Adres e-mail" />
                                 </div>
                                 <div class="col-6">
-                                    <span class="wpcf7-form-control-wrap text-3"><input type="text" name="text-3" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required formSubject" aria-required="true" aria-invalid="false" placeholder="Temat" /></span>
+                                    <input type="text" name="title" value="" size="40" placeholder="Temat" />
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-12">
-                                    <span class="wpcf7-form-control-wrap textarea"><textarea name="textarea" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea formText" aria-invalid="false" placeholder="Treść"></textarea></span></p>
+                                <div class="col-12">
+                                    <input type="text" name="text" value="" size="1000" placeholder="Tresc" />
+                                </div>
                                     <div class="toRight">
-                                        <input type="submit" value="Prześlij" class="wpcf7-form-control has-spinner wpcf7-submit formSubmit" />
+                                        <input type="submit" name="wyslij" value="Prześlij" class="formSubmit" />
                                     </div>
                                 </div>
+                                <h1><?php echo $wyslano?></h1>
                             </div>
                         </form>
                     </div>
@@ -93,5 +88,5 @@
     </div>
 </main>
 <?php
-    include('footer.php');
-    ?>
+include('footer.php');
+?>
