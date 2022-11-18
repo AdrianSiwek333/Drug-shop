@@ -1,6 +1,7 @@
 <?php
     include('header.php');
     ?>
+
 <main>
     <div class="container">
         <div class="row">
@@ -12,33 +13,51 @@
                         $stmt1=$db_con->query("SELECT * from categories where category_id='$cat_id'");
                         while($row1=$stmt1->fetch()){                   
                 ?>
-            <div class="col-md-12 col-xl-6">
-                <img class="productImage" src="<?=$row['image']?>">
-                <p class="productTitle"><?=$row['product_name']?></p>
+             <div class="card">
+             <div class="card-body">
+             <h2 class="card-title"><?=$row['product_name']?></h2>
+             <h6 class="card-subtitle">Kategoria: <?=$row1['category_name']?></h6>
+             <div class="row">
+             <div class="col-lg-5 col-md-5 col-sm-6">
+             <div class="white-box text-center"><img class="productImage" src="<?=$row['image']?>">
+             </div> </div>
+             <div class="col-lg-7 col-md-7 col-sm-6">
+                    <h4 class="box-title mt-5">Opis Produktu</h4>
+                    <p><?=$row['description']?></p>
+                    <p>Ilość w magazynie: <?=$row['quantity']?></p>
+                    
+                    <h2 class="mt-4">
+                    Cena: <?=$row['price']?>$
+                    </h2>
+                    <button class="btn fav btn-rounded mr-1" data-toggle="tooltip" title="" data-original-title="Add to Fav">
+                   
+                   <i class="bi bi-heart"></i> 
+                   </button>
+
+                    <button class="btn btn-dark btn-rounded mr-1" data-toggle="tooltip" title="" data-original-title="Add to cart">
+                   
+                    <i class="bi bi-bag cart"></i>   
+                    </button>
+                    <button class="btn btn-primary btn-rounded">Kup Teraz</button>
+                    <h3 class="box-title mt-5"></h3>
+                    <ul class="list-unstyled">
+                        <li><i class="bi bi-check"></i>Produkt Dostępny</li>
+                        <li><i class="bi bi-check"></i>Szybka wysyłka </li>
+                        <li><i class="bi bi-check"></i>Zaufana Firma</li>
+                    </ul>
+                <br> <br> <br> <br> <br> <br> <br> <br> <br>
             </div>
-            <div class="col-md-12 col-xl-6">
-                <p class="productDescription">Kategoria: <?=$row1['category_name']?></p>
-                <p class="productDescription"><?=$row['description']?></p>
-                <p class="productDescription">cena: <?=$row['price']?>$</p>
-                <p class="productDescription">Ilość w magazynie: <?=$row['quantity']?></p>
+            
             </div>
+             
             <?php
                     }
                 }
             ?>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="slickSlider">
-                    <div><img src="pictures/Certyfikat-placeholder.PNG"></div>
-                    <div><img src="pictures/Certyfikat-placeholder.PNG"></div>
-                    <div><img src="pictures/Certyfikat-placeholder.PNG"></div>
-                    <div><img src="pictures/Certyfikat-placeholder.PNG"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</main>
+            
+        </div>  
+    
+</main> 
 <?php
     include('footer.php');
     ?>
