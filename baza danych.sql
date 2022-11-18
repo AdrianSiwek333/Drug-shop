@@ -16,7 +16,10 @@ CREATE TABLE products(
     CREATE TABLE users(
     user_id int AUTO_INCREMENT not null,
     email varchar(60) not null,
+    login varchar(60) not null,
     password varchar(70) not null,
+    fname varchar(60) not null,
+    lname varchar(60) not null,
     user_type varchar(70) default 'noob',
     PRIMARY key(user_id)
     );
