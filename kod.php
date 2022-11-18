@@ -46,7 +46,7 @@ if(isset($_POST['register']))
         ':login'=>$login,
         ':fname'=>$fname,
         ':lname'=>$lname,
-        ':password'=>$password,
+        ':password'=>$hashPassword,
     ];
     $query_execute = $query_run->execute($data);
 
@@ -69,7 +69,7 @@ if(isset($_POST['register']))
     $user = $sth->fetch(PDO::FETCH_ASSOC);
     if($user)
     {
-    if($password==$user['password'])
+    if(password_verify($password, $user['password']))
     {
     $napis =  "Uzytkownik zalogowany pomyslnie";
 
