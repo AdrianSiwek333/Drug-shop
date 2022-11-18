@@ -14,6 +14,20 @@ body{
     height: 60px;
     width: auto;
 }
+.cart{
+    font-size:30px;
+    
+}
+.fav{
+    font-size:30px;
+    color: #fff;
+    background-color: #dc3545;
+    border-color: #dc3545;
+    
+}
+.btn-primary{
+    font-size:30px;
+}
 
 .loginbtn{
     font-size: 14px;
