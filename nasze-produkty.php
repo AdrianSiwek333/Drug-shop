@@ -63,9 +63,12 @@
                                 <div class='imgShowcase'>
                                 <img src="<?=$row['image']?>" class='img-fluid' alt='Zdjęcie produktu'>
                                 </div>
-                                <h4><?=$row['product_name']?></h4>
+                                <h4><?=$row['product_name']?> <button class="btn fav1 btn-rounded mr-1" data-toggle="tooltip" title="" data-original-title="Add to Fav">
+                                       <i class="bi bi-heart"></i> 
+                                 </button></h4>
                                 <form action="product.php" method="post">
-                                <button type="submit" name="produkt" value="<?=$row['product_id']?>" class="buttonBlue">Sprawdz</button>
+                                <button type="submit" name="produkt" value="<?=$row['product_id']?>" class="buttonBlue">Sprawdz </button>
+                                
                             </form>
                                 </div>
                                 <?php                        
