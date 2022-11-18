@@ -14,36 +14,42 @@
 
               <h2 class="fw-bold mb-2 text-uppercase">Register</h2>
               <p class="text-white-50 mb-5">Please enter your login and password!</p>
-
+              
+              <form method="post">
               <div class="form-outline form-white mb-4">
-                <input type="email" id="email" class="form-control form-control-lg" />
+                <input type="email" name="email" class="form-control form-control-lg" />
                 <div class="form-label" for="email">Email</div>
               </div>
               <div class="form-outline  form-white mb-4">
-                <input type="login" id="login" class="form-control  form-control-lg" />
+                <input type="login" name="login" class="form-control  form-control-lg" />
                 <div class="form-label" for="login">Login</div>
               </div>
 
               <div class="form-outline  form-white mb-4">
-                <input type="fname" id="fname" class="form-control  form-control-lg" />
+                <input type="fname" name="fname" class="form-control  form-control-lg" />
                 <div class="form-label" for="fname">Imię</div>
               </div>
               <div class="form-outline  form-white mb-4">
-                <input type="lname" id="lname" class="form-control  form-control-lg" />
+                <input type="lname" name="lname" class="form-control  form-control-lg" />
                 <div class="form-label" for="lname">Nazwisko</div>
               </div>
               
               
               <div class="form-outline  form-white mb-4">
-                <input type="password" id="password" class="form-control  form-control-lg" />
+                <input type="password" name="password" class="form-control  form-control-lg" />
                 <div class="form-label" for="password">Hasło</div>
               </div>
+              <button class="buttonBlue buttonSearch" type="submit" name="register">Zarejestruj</button>
+
+              </form>
 
 
-              <button class="buttonBlue buttonSearch" type="submit">Zarejestruj</button>
-
-              <p class="mb-0">Masz konto? <a href="#!" class="text-dark fw-bold">Zaloguj się</a>
-
+              <p class="mb-0">Masz konto? <a href="login.php" class="text-dark fw-bold">Zaloguj się</a>
+                
+                  <?php if(isset($_POST['register'])){
+                echo "<h1>" . $rejestracja . "</h1>";
+                  }
+                ?>
             </div>
 
             <div>
