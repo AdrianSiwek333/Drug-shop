@@ -12,7 +12,7 @@
             <div class="col-md-12">
 
             <?php
-            $stmt=$db_con->query('SELECT * from main_posts');
+            $stmt=$db_con->query('SELECT * from posts where type="main"');
             while($row=$stmt->fetch())
             {
 
