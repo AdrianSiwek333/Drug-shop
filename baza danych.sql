@@ -94,7 +94,7 @@ INSERT INTO products(product_name, price, quantity, category_id, image, descript
 ('Syrop 2077', 59.99, 20, 2, 'pictures/syrop2077.jpg', ''),
 ('Lisak', 9.99, 220, 5, 'pictures/lisak.jpg',''),
 ('Sok z gumijerzyn', 29.99, 15, 2, 'pictures/sok.jpg', 'Nożnie wyciskany'),
-('Kociołex', 42.01, 19, 4, 'pictures/kociolex.jpg', 'Leczy uzależnienia'),
+('Kociołex', 42.01, 19, 4, 'pictures/koxiolex.jpg', 'Leczy uzależnienia'),
 ('Zuplement', 349.11, 3, 5, 'pictures/zuplement.jpg', 'Jest git');
 
 INSERT INTO customers (fname, lname, town, address, user_id) VALUES
