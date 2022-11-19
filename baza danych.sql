@@ -82,7 +82,7 @@ INSERT INTO categories(category_name, description) VALUES
 
 INSERT INTO products(product_name, price, quantity, category_id, image, description) VALUES
 ('Pigula 3002', 20, 10, 1, 'pictures/pigula3002.jpg',''),
-('Bernadrill', 70, 30, 3, 'pictures/dernadrill.jpg',''),
+('Bernadrill', 70, 30, 3, 'pictures/bernadrill.jpg',''),
 ('Ohio', 60, 30, 3, 'pictures/ohio.jpg',''),
 ('The Zbuczyn Special', 50, 5, 3, 'pictures/special.jpg',''),
 ('Polski Lean', 150, 20, 2, 'pictures/polski lean.jpg',''),
