@@ -49,7 +49,7 @@
                 <div class="productSlickInfo">
                     <img src="<?=$row['image']?>">
                     <p><?=$row['product_name']?></p>
-                    <form method="post" action="product.php">
+                    <form method="post">
                     <button type="submit" name="produkt" value="<?=$row['product_id']?>" class="buttonBlue">Sprawdz</button>
                     </form>
                 </div>
