@@ -66,7 +66,7 @@
                                 <h4><?=$row['product_name']?> <button class="btn fav1 btn-rounded mr-1" data-toggle="tooltip" title="" data-original-title="Add to Fav">
                                        <i class="bi bi-heart"></i> 
                                  </button></h4>
-                                <form action="product.php" method="post">
+                                <form method="post">
                                 <button type="submit" name="produkt" value="<?=$row['product_id']?>" class="buttonBlue">Sprawdz </button>
                                 
                             </form>
