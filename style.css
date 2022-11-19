@@ -248,7 +248,7 @@ input[type="radio"]:checked + label::after{
 }
 .product .productsShowcase img{
     width: 300px;
-    height: auto;
+    height: 225px;
     transition: all 500ms ease-in-out;
 }
 .product .imgShowcase{
@@ -413,8 +413,9 @@ input[type="radio"]:checked + label::after{
 .productImage{
     margin: 40px 0 15px 0;
     max-width: 600px;
-    width: 100%;
+
     border: 3px solid #000000;
+    max-height:300px;
 }
 .productTitle{
     text-align: center;
