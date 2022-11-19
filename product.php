@@ -1,12 +1,13 @@
 <?php
     include('header.php');
+    session_start();
     ?>
 
 <main>
     <div class="container">
         <div class="row">
                 <?php
-                    $id=$_POST['produkt'];
+                    $id=$_COOKIE["produkt"];
                     $stmt=$db_con->query("SELECT * from products where product_id='$id'");
                     while($row=$stmt->fetch()){  
                         $cat_id=$row['category_id'];
@@ -29,16 +30,18 @@
                     <h2 class="mt-4">
                     Cena: <?=$row['price']?>$
                     </h2>
-                    <button class="btn fav btn-rounded mr-1" data-toggle="tooltip" title="" data-original-title="Add to Fav">
+                    <form method="get">
+                    <button type="submit" class="btn fav btn-rounded mr-1" data-toggle="tooltip" title="" data-original-title="Add to Fav" name="like">
                    
                    <i class="bi bi-heart"></i> 
                    </button>
 
-                    <button class="btn btn-dark btn-rounded mr-1" data-toggle="tooltip" title="" data-original-title="Add to cart">
+                    <button type="submit" value=<?=$row['product_id']?> class="btn btn-dark btn-rounded mr-1" data-toggle="tooltip" title="" data-original-title="Add to cart" name="add">
                    
                     <i class="bi bi-bag cart"></i>   
                     </button>
-                    <button class="btn btn-primary btn-rounded">Kup Teraz</button>
+                    <button type="submit" class="btn btn-primary btn-rounded">Kup Teraz</button>
+                        </form>
                     <h3 class="box-title mt-5"></h3>
                     <ul class="list-unstyled">
                         <li><i class="bi bi-check"></i>Produkt Dostępny</li>
