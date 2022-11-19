@@ -1,6 +1,48 @@
 <?php
     include('header.php');
+    session_start();
     ?>
+      <div class="col-md-12">
+          <h5 class="text-center">Cart Items</h5>
+          <?php 
+          $Total=0;
+          if(isset($_SESSION['cart'])) { ?>
+          <table class="table table-bordered">
+              <thead>
+                 <th>SN</th>
+                 <th>Product</th>
+                 <th>Quantity</th>
+                 <th>Price</th>
+                 <th>Options</th>
+              </thead>
+              <tbody>
+                <?php
+                $index =0;
+                $i=1;
+                foreach($_SESSION['cart'] as $key => $val) {   
+                  $totalPrice = $val['quantity'] * $val['price'];
+                  $Total = $Total + $totalPrice;
+                  ?>            
+                <tr>
+                   <td><?=$i++?></td> 
+                   <td><?=$val['product_name']?></td> 
+                   <td><?=$val['quantity']?></td>  
+                   <td><?=$totalPrice?></td> 
+                   <td><a href="actions.php?action_type=remove_item&index=<?=$key?>">Remove </a></td>
+                </tr>
+              <?php $index++; } ?>
+              <tr>
+                <td></td>
+                <td></td>
+                <td><b>Total</b></td>
+                <td><?=$Total?></td>
+                <td></td>
+              </tr>
+              </tbody>
+
+          </table>
+        <?php } ?>
+        </div>
 <section class="h-100 gradient-custom">
   <div class="container py-5">
     <div class="row d-flex justify-content-center my-4">
@@ -115,6 +157,7 @@
       </div>
     </div>
   </div>
+
 </section>
 <?php
     include('footer.php');
