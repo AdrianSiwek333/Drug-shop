@@ -1,5 +1,11 @@
 <?php
 
+if(isset($_POST["produkt"])){
+
+    setcookie("produkt", $_POST['produkt'], time()+(3600));
+    echo "<script>window.location = 'product.php';</script>";
+}
+
 if(isset($_POST['wyslij']))
 {
     $name = $_POST['name'];
