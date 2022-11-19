@@ -301,6 +301,8 @@ input[type="radio"]:checked + label::after{
     padding: 5px 15px;
     border-radius: 5px;
     border: 3px solid #e5e5e5;
+    margin:5px;
+
 }
 .howToContact form .formSubject, .howToContact form .formEmail, .howToContact form textarea{
     margin-top: 25px;
@@ -539,4 +541,3 @@ footer .menuBottom a:hover:after{
         justify-content: center;
     }
 }
-
