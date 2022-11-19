@@ -11,7 +11,7 @@
         <div class="row">
             <?php
 
-                $stmt=$db_con->query("SELECT * from o_nas_posts");
+                $stmt=$db_con->query("SELECT * from posts where type='onas'");
                 while($row=$stmt->fetch()){
                     ?>
             <div class="col-md-12">
