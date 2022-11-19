@@ -82,20 +82,20 @@ INSERT INTO categories(category_name, description) VALUES
 
 INSERT INTO products(product_name, price, quantity, category_id, image, description) VALUES
 ('Pigula 3002', 20, 10, 1, 'pictures/pigula3002.jpg',''),
-('Bernadrill', 70, 30, 3, 'pictures/produkt1.jpg',''),
-('Ohio', 60, 30, 3, 'pictures/produkt1.jpg',''),
-('The Zbuczyn Special', 50, 5, 3, 'pictures/produkt1.jpg',''),
-('Polski Lean', 150, 20, 2, 'pictures/produkt1.jpg',''),
-('Neptunki', 34.99, 99, 5, 'pictures/produkt1.jpg',''),
-('Antibioticos Banditos', 79.99, 25, 4,'pictures/produkt1.jpg',''),
-('Rumianek', 199.99, 200, 3, 'pictures/produkt1.jpg', ''),
-('Szałwia', 134.99, 100, 3, 'pictures/produkt1.jpg', 'Swieżo mielona'),
-('Novoscorbin', 49.99, 15, 1, 'pictures/produkt1.jpg', ''),
-('Syrop 2077', 59.99, 20, 2, 'pictures/produkt1.jpg', ''),
-('Lisak', 9.99, 220, 5, 'pictures/produkt1.jpg',''),
-('Sok z gumijerzyn', 29.99, 15, 2, 'pictures/produkt1.jpg', 'Nożnie wyciskany'),
-('Kociołex', 42.01, 19, 4, 'pictures/produkt1.jpg', 'Leczy uzależnienia'),
-('Zuplement', 349.11, 3, 5, 'pictures/produkt1.jpg', 'Jest git');
+('Bernadrill', 70, 30, 3, 'pictures/dernadrill.jpg',''),
+('Ohio', 60, 30, 3, 'pictures/ohio.jpg',''),
+('The Zbuczyn Special', 50, 5, 3, 'pictures/special.jpg',''),
+('Polski Lean', 150, 20, 2, 'pictures/polski lean.jpg',''),
+('Neptunki', 34.99, 99, 5, 'pictures/neptunki.jpg',''),
+('Antibioticos Banditos', 79.99, 25, 4,'pictures/antibioticos banditos.jpg',''),
+('Rumianek', 199.99, 200, 3, 'pictures/rumianek.jpg', ''),
+('Szałwia', 134.99, 100, 3, 'pictures/szalwia.jpg', 'Swieżo mielona'),
+('Novoscorbin', 49.99, 15, 1, 'pictures/novoscorbin.jpg', ''),
+('Syrop 2077', 59.99, 20, 2, 'pictures/syrop2077.jpg', ''),
+('Lisak', 9.99, 220, 5, 'pictures/lisak.jpg',''),
+('Sok z gumijerzyn', 29.99, 15, 2, 'pictures/sok.jpg', 'Nożnie wyciskany'),
+('Kociołex', 42.01, 19, 4, 'pictures/kociolex.jpg', 'Leczy uzależnienia'),
+('Zuplement', 349.11, 3, 5, 'pictures/zuplement.jpg', 'Jest git');
 
 INSERT INTO customers (fname, lname, town, address, user_id) VALUES
 ('Dawid', 'Tchorzewski', 'Zbuczyn', 'Ulica 66', 1),
