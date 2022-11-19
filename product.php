@@ -37,9 +37,9 @@
                    </button>
 
                     <button type="submit" value=<?=$row['product_id']?> class="btn btn-dark btn-rounded mr-1" data-toggle="tooltip" title="" data-original-title="Add to cart" name="add">
-                   
                     <i class="bi bi-bag cart"></i>   
                     </button>
+                    <a href="actions.php?action_type=add_item&product_id=<?=$row['product_id']?>&product_name=<?=$row['product_name']?>&quantity=1&price=<?=$row['price']?>" class="btn btn-warning btn-style">Add to Cart</a>
                     <button type="submit" class="btn btn-primary btn-rounded">Kup Teraz</button>
                         </form>
                     <h3 class="box-title mt-5"></h3>
@@ -57,7 +57,7 @@
                     }
                 }
             ?>
-            
+
         </div>  
     
 </main> 
