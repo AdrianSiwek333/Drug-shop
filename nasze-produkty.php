@@ -2,6 +2,12 @@
     include('header.php');
     ?>
 <main>
+    <script>
+        function numOnly(event) {
+            var key = event.keyCode;
+            return ((key >= 48 && key <= 57) || (key >= 96 && key <= 105) || key == 8 || key == 13 || key == 17);
+        };
+    </script>
     <div class="product">
         <div class="container">
             <div class="row">
@@ -15,34 +21,24 @@
                         <div class="sidebar">
                             <form method="POST" action="nasze-produkty.php">
                                 <input type="text" name="search" class="searchInput">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <input type="text" onkeydown="return numOnly(event);" inputmode="numeric" placeholder="od" min="1" name="price_begin" class="price priceBegin">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" onkeydown="return numOnly(event);" inputmode="numeric" placeholder="do" name="price_end" class="price priceEnd">
+                                    </div>
+                                </div>
                                 <p>Kategorie</p>
-                                <input type="radio" id="bolbrzucha" value="0" name="kategorie">
-                                <label for="bolbrzucha"><span>Ból brzucha</span></label>
-                                <input type="radio" id="bolglowy" value="1" name="kategorie">
-                                <label for="bolglowy"><span>Ból głowy</span></label>
-                                <input type="radio" id="kaszel" value="2" name="kategorie">
-                                <label for="kaszel"><span>Kaszel</span></label>
-                                <input type="radio" id="katar" value="3" name="kategorie">
-                                <label for="katar"><span>Katar</span></label>
-                                <p>Pojemność</p>
-                                <input type="radio" id="50ml" value="4" name="pojemnosc">
-                                <label for="50ml"><span>50 ml</span></label>
-                                <input type="radio" id="100ml" value="5" name="pojemnosc">
-                                <label for="100ml"><span>100 ml</span></label>
-                                <input type="radio" id="12tabletek" value="6" name="pojemnosc">
-                                <label for="12tabletek"><span>12 tabletek</span></label>
-                                <input type="radio" id="24tabletki" value="7" name="pojemnosc">
-                                <label for="24tabletki"><span>24 tabletki</span></label>
-                                <p>Typ</p>
-                                <input type="radio" id="plyn" value="8" name="typ">
-                                <label for="plyn"><span>Płyn</span></label>
-                                <input type="radio" id="spray" value="9" name="typ">
-                                <label for="spray"><span>Spray</span></label>
-                                <input type="radio" id="tabletki" value="10" name="typ">
-                                <label for="tabletki"><span>Tabletki</span></label>
-                                <input type="radio" id="tabletkiDoSsania" value="11" name="typ">
-                                <label for="tabletkiDoSsania"><span>Tabletki do ssania</span></label>
-                                <input class="buttonClear" type="submit" value="Wyczyść filtr">
+                                <?php
+                                    $categories=$db_con->query("SELECT category_id, category_name FROM categories");
+                                    while ($row = $categories->fetch()){
+                                        ?>
+                                        <input type="radio" id="<?php print($row['category_id']); ?>" value="<?php print($row['category_id']); ?>" name="categories">
+                                        <label for="<?php print($row['category_id']); ?>"><span><?php print($row['category_name']); ?></span></label>
+                                    <?php }
+                                ?>
+                                <input class="buttonClear" type="reset" value="Wyczyść filtr">
                                 <button class="buttonBlue buttonSearch" type="submit">Szukaj</button>
                             </form>
                         </div>
@@ -51,10 +47,21 @@
                 <div class="col-md-9">
                     <div class="row">
                         <?php
-                            if(!isset($_POST['search'])){      
+                        $stmt=null;
+                            if(!isset($_POST['search'])&& !isset($_POST['price_begin']) && !isset($_POST['price_end'])){
                                 $stmt = $db_con->query("SELECT * FROM products");
                             }else{
-                                $stmt = $db_con->query("SELECT * FROM products WHERE product_name like '".$_POST['search']."%'");
+                                if($_POST['price_begin']==null){
+                                    $_POST['price_begin']=1;
+                                }
+                                if($_POST['price_end']==null){
+                                    $_POST['price_end']=100000;
+                                }
+                                if(!isset($_POST['categories'])){
+                                    $stmt = $db_con->query("SELECT * FROM products WHERE product_name like '".$_POST['search']."%' AND price BETWEEN '".$_POST['price_begin']."' AND '".$_POST['price_end']."'");
+                                }else{
+                                    $stmt = $db_con->query("SELECT * FROM products WHERE product_name like '".$_POST['search']."%' AND price BETWEEN '".$_POST['price_begin']."' AND '".$_POST['price_end']."' AND category_id like '".$_POST['categories']."'");
+                                }
                             }
                             while ($row = $stmt->fetch()) {
 
@@ -74,7 +81,6 @@
                                 <?php                        
                             }
                             ?>
-
                     </div>
                 </div>
             </div>
