@@ -47,15 +47,21 @@
                 <div class="col-md-9">
                     <div class="row">
                         <?php
+                        $maxPrice=$db_con->query("SELECT MAX(price) from products");
+                        $maxPrice=$maxPrice->fetch();
+                        $valMaxPrice=0+$maxPrice[0];
+                        $minPrice=$db_con->query("SELECT MIN(price) from products");
+                        $minPrice=$minPrice->fetch();
+                        $valMinPrice=0+$minPrice[0];
                         $stmt=null;
                             if(!isset($_POST['search'])&& !isset($_POST['price_begin']) && !isset($_POST['price_end'])){
                                 $stmt = $db_con->query("SELECT * FROM products");
                             }else{
                                 if($_POST['price_begin']==null){
-                                    $_POST['price_begin']=1;
+                                    $_POST['price_begin']=$valMinPrice;
                                 }
                                 if($_POST['price_end']==null){
-                                    $_POST['price_end']=100000;
+                                    $_POST['price_end']=$valMaxPrice;
                                 }
                                 if(!isset($_POST['categories'])){
                                     $stmt = $db_con->query("SELECT * FROM products WHERE product_name like '".$_POST['search']."%' AND price BETWEEN '".$_POST['price_begin']."' AND '".$_POST['price_end']."'");
