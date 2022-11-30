@@ -29,8 +29,8 @@
     <?php
     include('db_con.php');
     include('kod.php');
+    session_start();
     if (isset($_COOKIE['login'])) {
-        session_start();
         $_SESSION['login'] = 1;
     }
     ?>
