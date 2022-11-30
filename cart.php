@@ -133,7 +133,7 @@ include('header.php');
     </div>
     <?php
   } else {
-    echo 'niezalogowano';
+    echo '<a href="login.php">Jak chcesz kupic zaloguj</a>';
   }
     ?>
 
