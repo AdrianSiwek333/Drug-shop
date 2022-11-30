@@ -68,8 +68,8 @@ if (isset($_POST['login'])) {
     $user = $sth->fetch(PDO::FETCH_ASSOC);
     if ($user) {
         if (password_verify($password, $user['password'])) {
-            $napis = "Uzytkownik zalogowany pomyslnie";
             setcookie("login", 1, time() + 86400);
+            header("location:index.php");
 
         } else {
             $napis = "bledne dane";
