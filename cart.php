@@ -11,7 +11,7 @@ include('header.php');
 <section class="h-100 gradient-custom">
 
   <?php
-  if (isset($_SESSION['login'])) {
+  if (isset($_SESSION['login']) && $_SESSION['login'] == 1) {
 
   ?>
   <div class="container py-5">
