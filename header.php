@@ -30,8 +30,14 @@
     include('db_con.php');
     include('kod.php');
     session_start();
-    if (isset($_COOKIE['login'])) {
+    if (isset($_COOKIE['login']) && $_COOKIE['login']==1) {
         $_SESSION['login'] = 1;
+    }
+    else if(isset($_COOKIE['login']) && $_COOKIE['login']==2){
+        $_SESSION['login'] = 2;
+    }
+    else if(isset($_COOKIE['login']) && $_COOKIE['login']==0){
+        $_SESSION['login'] = 0;
     }
     ?>
 </head>
@@ -60,13 +66,33 @@
 
                         <li class="nav-item">
                             <a class="nav-link" href="kontakt.php">Kontakt</a>
-                        </li>
+                        </li>  
+                        <?php
+  if (isset(($_SESSION['login'])) && ($_SESSION['login'] == 1 || $_SESSION['login'] == 2)) {
+
+  ?>
+        <form method="post">
+            <li class="nav-item">
+            <button type="submit" class="nav-link" name="wyloguj">Wyloguj</button>
+        </li>
+        </form>
+
+
+                        <?php
+  }
+  else{
+    ?>
                         <li class="nav-item">
                             <a class="nav-link" href="login.php">Zaloguj</a>
                         </li>
+                        <li class="nav-item">
                         <a class="nav-link" href="register.php">Rejestracja</a>
                         </li>
-                        </li>
+<?php
+  }
+  ?>
+  
+
                         <a class="nav-link" href="favourite.php">Ulubione <i class="bi bi-heart"></i> </a>
 
                         </li>
