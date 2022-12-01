@@ -64,7 +64,7 @@ CREATE TABLE orders(
 
         CREATE TABLE contact(
         contact_id int AUTO_INCREMENT not null,
-        text blob(1000) not null,
+        text text(1000) not null,
         title varchar(500) not null,
         name varchar(70) not null,
         surname varchar(70) not null,
