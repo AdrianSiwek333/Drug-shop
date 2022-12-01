@@ -61,18 +61,20 @@ include('header.php');
 
                 <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
                   <!-- Quantity -->
+                  <form method="post">
                   <div class="d-flex mb-3" style="max-width: 300px">
-
-                    <button class="buttonAdd">
+                    
+                    <button type="submit" class="buttonAdd" name="minus">
                       -
                     </button>
-
+                    
                     <input id="form1" min="0" name="quantity" value="<?= $val['quantity'] ?>" type="number"
                       class="form-control mb-4" readonly />
                     <button class=" buttonAdd">
                       +
                     </button>
                   </div>
+                  </form>
                   <!-- Quantity -->
 
                   <!-- Price -->
