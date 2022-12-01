@@ -91,4 +91,11 @@ if (isset($_POST['login'])) {
     $napis = "";
 }
 
+if(isset($_POST['wyloguj'])){
+    $_SESSION['login'] = 0;
+    setcookie("login", 0,  time() + 86400);
+    header('location:index.php');
+}
+
+
 ?>
