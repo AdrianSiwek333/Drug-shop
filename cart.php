@@ -10,10 +10,6 @@ include('header.php');
 
 <section class="h-100 gradient-custom">
 
-  <?php
-  if (isset($_SESSION['login']) && $_SESSION['login'] == 1) {
-
-  ?>
   <div class="container py-5">
     <div class="row d-flex justify-content-center my-4">
       <div class="col-md-12">
@@ -120,10 +116,24 @@ include('header.php');
                     </strong></span>
                 </li>
               </ul>
+              <?php
+  if (isset(($_SESSION['login'])) && ($_SESSION['login'] == 1 || $_SESSION['login'] == 2)) {
 
+  ?>
               <button type="button" class="buttonBlue buttonSearch">
                 Go to checkout
               </button>
+  <?php
+  }
+  else{
+    ?>
+    <a href="login.php" class="buttonBlue buttonSearch">
+    Zalogowane wymagane do zakupu
+  </a>
+  <?php
+  }
+  ?>
+
             </div>
           </div>
         </div>
@@ -131,11 +141,6 @@ include('header.php');
       </div>
 
     </div>
-    <?php
-  } else {
-    echo '<a href="login.php">Jak chcesz kupic zaloguj</a>';
-  }
-    ?>
 
 </section>
 <?php
