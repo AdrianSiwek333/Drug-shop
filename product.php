@@ -31,11 +31,9 @@ include('header.php');
                                 Cena: <?= $row['price'] ?>$
                             </h2>
                             <form method="get">
-                                <button type="submit" class="btn fav btn-rounded mr-1" data-toggle="tooltip" title=""
-                                    data-original-title="Add to Fav" name="like">
 
-                                    <i class="bi bi-heart"></i>
-                                </button>
+                                <a href="favouritescript.php?action_type=add_item&product_id=<?= $row['product_id'] ?>&product_name=<?= $row['product_name'] ?>&image=<?= $row['image'] ?>&quantity=1&price=<?= $row['price']?>&description=<?=$row['description']?>"
+                                class="btn fav btn-rounded mr-1" data-toggle="tooltip" name="favourite" data-original-title="Add to Fav"> <i class="bi bi-heart"></i></a>
 
 
                                 <a href="actions.php?action_type=add_item&product_id=<?= $row['product_id'] ?>&product_name=<?= $row['product_name'] ?>&image=<?= $row['image'] ?>&quantity=1&price=<?= $row['price'] ?>"
