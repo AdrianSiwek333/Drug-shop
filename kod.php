@@ -68,14 +68,24 @@ if (isset($_POST['login'])) {
     $user = $sth->fetch(PDO::FETCH_ASSOC);
     if ($user) {
         if (password_verify($password, $user['password'])) {
-            setcookie("login", 1, time() + 86400);
-            header("location:index.php");
+            if($user['user_type']=='noob'){
+                $napis= 'witaj noobie';
+                setcookie("login", 1, time() + 86400);
+                header("location:index.php");
+            }
+            else{
+                $napis = 'witaj adminie';
+                setcookie("login", 2, time() + 86400);
+                header("location:index.php");
+            }
+
+            
 
         } else {
             $napis = "bledne dane";
         }
     } else {
-        $napis = "";
+        $napis = "bledne dane";
     }
 } else {
     $napis = "";
