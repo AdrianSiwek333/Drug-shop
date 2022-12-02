@@ -34,26 +34,20 @@ if (isset($_POST['wyslij'])) {
 
 if (isset($_POST['register'])) {
     $email = $_POST['email'];
-    $login = $_POST['login'];
-    $fname = $_POST['fname'];
-    $lname = $_POST['lname'];
     $password = $_POST['password'];
 
     $hashPassword = password_hash($password, PASSWORD_BCRYPT);
-    $query = "INSERT INTO users(email, login, fname, lname, password) VALUES (:email, :login, :fname, :lname, :password)";
+    $query = "INSERT INTO users(email, password) VALUES (:email, :password)";
     $query_run = $db_con->prepare($query);
 
     $data = [
         ':email' => $email,
-        ':login' => $login,
-        ':fname' => $fname,
-        ':lname' => $lname,
         ':password' => $hashPassword,
     ];
     $query_execute = $query_run->execute($data);
 
     if ($query_execute) {
-        $rejestracja = 'Zarejestrowano';
+        $rejestracja = 'Zarejestrowano pomyślnie';
     } else {
         $rejestracja = 'Błąd. Spróbuj ponownie.';
     }
