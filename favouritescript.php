@@ -19,23 +19,11 @@ if($action_type=='add_item')
         'description'=>$description,
 	);
 
-	if(!empty($_SESSION['favoutite']))
+	if(!empty($_SESSION['favourite']))
 	{
 		$product_ids = array_column($_SESSION['favourite'], 'product_id');
-		if(in_array($id, $product_ids))
-		{
-			foreach($_SESSION['favourite'] as $key => $val)
-			{
-				if($_SESSION['favourite'][$key]['product_id']==$id)
-				{
-					echo 'blad';
-				}
-				
-			}
-			
-		}
-		else
-		{
+		if(!in_array($id, $product_ids))
+		{	
 			$_SESSION['favourite'][] = $product_arr;
 		}
 	}
