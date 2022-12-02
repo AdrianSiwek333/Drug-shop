@@ -97,5 +97,14 @@ if(isset($_POST['wyloguj'])){
     header('location:index.php');
 }
 
+if(isset($_POST['wyswietl']) && $_POST['wyswietl']=='kafelki'){
+    setcookie('wyswietl', 'kafelki', time()+86400);
+    header('location:nasze-produkty.php');
+}
+else if(isset($_POST['wyswietl']) && $_POST['wyswietl']=='lista'){
+    setcookie('wyswietl', 'lista', time()+86400);
+    header('location:nasze-produkty.php');
+}
+
 
 ?>
