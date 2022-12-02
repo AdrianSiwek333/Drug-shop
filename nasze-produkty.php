@@ -73,7 +73,7 @@
                                 }
                             }
                             while ($row = $stmt->fetch()) {
-                                if(!isset($_POST['wyswietl']) || $_POST['wyswietl']=='kafelki'){
+                                if((isset($_COOKIE['wyswietl']) && $_COOKIE['wyswietl']=='kafelki') || !isset($_COOKIE['wyswietl'])){
                                 ?>
                                 <div class='col-md-12 col-lg-6 col-xxl-4 productsShowcase active'>
                                 <div class='imgShowcase'>
@@ -90,7 +90,7 @@
                                 </div>
                                 <?php
                                 }
-                                else{
+                                else if(isset($_COOKIE['wyswietl']) && $_COOKIE['wyswietl']=='lista'){
                                     ?>
 
                                 
