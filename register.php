@@ -19,21 +19,6 @@
               <div class="form-outline form-white mb-4">
                 <input type="email" name="email" class="form-control form-control-lg" />
                 <div class="form-label" for="email">Email</div>
-              </div>
-              <div class="form-outline  form-white mb-4">
-                <input type="login" name="login" class="form-control  form-control-lg" />
-                <div class="form-label" for="login">Login</div>
-              </div>
-
-              <div class="form-outline  form-white mb-4">
-                <input type="fname" name="fname" class="form-control  form-control-lg" />
-                <div class="form-label" for="fname">Imię</div>
-              </div>
-              <div class="form-outline  form-white mb-4">
-                <input type="lname" name="lname" class="form-control  form-control-lg" />
-                <div class="form-label" for="lname">Nazwisko</div>
-              </div>
-              
               
               <div class="form-outline  form-white mb-4">
                 <input type="password" name="password" class="form-control  form-control-lg" />
