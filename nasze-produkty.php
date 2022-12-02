@@ -79,9 +79,9 @@
                                 <div class='imgShowcase'>
                                 <img src="<?=$row['image']?>" class='img-fluid' alt='Zdjęcie produktu'>
                                 </div>
-                                <h4><?=$row['product_name']?> <button class="btn fav1 btn-rounded mr-1" data-toggle="tooltip" title="" data-original-title="Add to Fav">
+                                <h4><?=$row['product_name']?> <a href="favouritescript.php?action_type=add_item&product_id=<?= $row['product_id'] ?>&product_name=<?= $row['product_name'] ?>&image=<?= $row['image'] ?>&quantity=1&price=<?= $row['price']?>&description=<?=$row['description']?>" class="btn fav1 btn-rounded mr-1" data-toggle="tooltip" title="" data-original-title="Add to Fav">
                                        <i class="bi bi-heart"></i> 
-                                 </button></h4>
+                                </a></h4>
                                  <p style="text-align: center;"><?=$row['price']?>$ </p>
                                 <form method="post">
                                 <button type="submit" name="produkt" value="<?=$row['product_id']?>" class="buttonBlue">Sprawdź</button>
@@ -136,7 +136,9 @@
                                                 <form method="post">
                                                 <button type="submit" name="produkt" value="<?=$row['product_id']?>" class="buttonBlue">Sprawdź</button>
                                                 <a href="actions.php?action_type=add_item&product_id=<?= $row['product_id'] ?>&product_name=<?= $row['product_name'] ?>&image=<?= $row['image'] ?>&quantity=1&price=<?= $row['price'] ?>"
-                                                                class="btn btn-dark btn-rounded mr-1"> <i class="bi bi-bag cart"></i></a>
+                                                class="btn btn-dark btn-rounded mr-1"> <i class="bi bi-bag cart"></i></a>
+                                                <a href="favouritescript.php?action_type=add_item&product_id=<?= $row['product_id'] ?>&product_name=<?= $row['product_name'] ?>&image=<?= $row['image'] ?>&quantity=1&price=<?= $row['price']?>&description=<?=$row['description']?>"
+                                                class="btn fav btn-rounded mr-1" data-toggle="tooltip" name="favourite" data-original-title="Add to Fav"> <i class="bi bi-heart"></i></a>
                                             </form>
                                             </div>
                                         </div>
