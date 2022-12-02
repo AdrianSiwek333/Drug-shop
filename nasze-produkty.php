@@ -38,6 +38,9 @@
                                         <label for="<?php print($row['category_id']); ?>"><span><?php print($row['category_name']); ?></span></label>
                                     <?php }
                                 ?>
+                                <p>Sposób wyświetlania</p>
+                                <input type="radio" id="kafelki" value="kafelki" name="wyswietl"><label for="kafelki"><span>Kafelki</span></label>
+                                <input type="radio" id="lista" value="lista" name="wyswietl"><label for="lista"><span>Lista</span></label>
                                 <input class="buttonClear" type="reset" value="Wyczyść filtr">
                                 <button class="buttonBlue buttonSearch" type="submit">Szukaj</button>
                             </form>
@@ -70,7 +73,7 @@
                                 }
                             }
                             while ($row = $stmt->fetch()) {
-
+                                if(!isset($_POST['wyswietl']) || $_POST['wyswietl']=='kafelki'){
                                 ?>
                                 <div class='col-md-12 col-lg-6 col-xxl-4 productsShowcase active'>
                                 <div class='imgShowcase'>
@@ -85,7 +88,65 @@
                                 
                             </form>
                                 </div>
-                                <?php                        
+                                <?php
+                                }
+                                else{
+                                    ?>
+
+                                
+                                <div class="row justify-content-center mb-3">
+                                <div class="col-md-12 col-xl-10">
+                                    <div class="card shadow-0 border rounded-3">
+                                    <div class="card-body">
+                                        <div class="row">
+                                        <div class="col-md-12 col-lg-3 col-xl-3 mb-4 mb-lg-0">
+                                            <div class="bg-image hover-zoom ripple rounded ripple-surface">
+                                            <img src="<?=$row['image']?>"
+                                                class="w-100" />
+                                            <a href="#!">
+                                                <div class="hover-overlay">
+                                                <div class="mask" style="background-color: rgba(253, 253, 253, 0.15);"></div>
+                                                </div>
+                                            </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-lg-6 col-xl-6">
+                                            <h5><?=$row['product_name']?></h5>
+                                            <div class="d-flex flex-row">
+                                            <div class="text-danger mb-1 me-2">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                            </div>
+                                            </div>
+                                            <div class="mt-1 mb-0 text-muted small">
+                                            <span>Kategoria</span>
+                                            </div>
+                                            <p class="text-truncate mb-4 mb-md-0">
+                                            <?=$row['description']?>
+                                            </p>
+                                        </div>
+                                        <div class="col-md-6 col-lg-3 col-xl-3 border-sm-start-none border-start">
+                                            <div class="d-flex flex-row align-items-center mb-1">
+                                            <h4 class="mb-1 me-1"><?=$row['price']?> $</h4>
+                                            </div>
+                                            <h6 class="text-success">Free shipping</h6>
+                                            <div class="d-flex flex-column mt-4">
+                                                <form method="post">
+                                                <button type="submit" name="produkt" value="<?=$row['product_id']?>" class="buttonBlue">Sprawdź</button>
+                                                <a href="actions.php?action_type=add_item&product_id=<?= $row['product_id'] ?>&product_name=<?= $row['product_name'] ?>&image=<?= $row['image'] ?>&quantity=1&price=<?= $row['price'] ?>"
+                                                                class="btn btn-dark btn-rounded mr-1"> <i class="bi bi-bag cart"></i></a>
+                                            </form>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                                </div>
+                                <?php 
+                                }                       
                             }
                             ?>
                     </div>
