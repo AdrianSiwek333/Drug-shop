@@ -1,6 +1,7 @@
 <?php
 include('header.php');
 ?>
+<main>
 <div class="col-md-12">
 
   <?php
@@ -145,6 +146,7 @@ include('header.php');
     </div>
 
 </section>
+  </main>
 <?php
 include('footer.php');
 ?>
