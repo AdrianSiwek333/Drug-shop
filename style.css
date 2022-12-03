@@ -7,9 +7,15 @@
     font-weight: normal;
     font-style: normal;
 }
+
 body{
     font-family: 'Roboto', sans-serif;
 }
+
+main{
+    min-height:720px;
+}
+
 .logo img{  
     height: 60px;
     width: auto;
