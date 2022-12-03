@@ -123,7 +123,7 @@
                                             <div class="mt-1 mb-0 text-muted small">
                                             <span>Kategoria</span>
                                             </div>
-                                            <p class="text-truncate mb-4 mb-md-0">
+                                            <p>
                                             <?=$row['description']?>
                                             </p>
                                         </div>
