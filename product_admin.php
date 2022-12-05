@@ -109,7 +109,7 @@ $category_max_value = $category_max[0];
             echo "<input type='text' name='image_a' id='image' placeholder='Ścieżka zdjęcia produktu' required>";
             echo "<label for='description'>Opis</label>";
             echo "<input type='text' name='description_a' id='description' placeholder='Opis produktu'>";
-            echo "<button type='submit'>Dodaj użytkownika</button>";
+            echo "<button type='submit'>Dodaj produkt</button>";
             echo "</form>";
         }
         ?>
