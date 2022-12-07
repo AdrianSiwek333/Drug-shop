@@ -16,12 +16,12 @@ include('header.php');
       <div class="col-md-12">
         <div class="card mb-4">
           <div class="card-header py-3">
-            <h5 class="mb-0">Cart</h5>
+            <h5 class="mb-0">Koszyk</h5>
           </div>
           <?php
     if (isset($_SESSION['cart'])) {
       foreach ($_SESSION['cart'] as $key => $val) {
-        $totalPrice = $val['quantity'] * $val['price'];
+        $totalPrice = $val['price'];
         $Total = $Total + $totalPrice;
           ?>
           <div class="card-body">
@@ -47,8 +47,6 @@ include('header.php');
                   <p><strong>
                       <?= $val['product_name'] ?>
                     </strong></p>
-                  <p>Ilość: <?= $val['quantity'] ?>
-                  </p>
                   <p></p>
 
 
@@ -61,26 +59,10 @@ include('header.php');
                 </div>
 
                 <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
-                  <!-- Quantity -->
-                  <form method="post">
-                  <div class="d-flex mb-3" style="max-width: 300px">
-                    
-                    <button type="submit" class="buttonAdd" name="minus">
-                      -
-                    </button>
-                    
-                    <input id="form1" min="0" name="quantity" value="<?= $val['quantity'] ?>" type="number"
-                      class="form-control mb-4" readonly />
-                    <button class=" buttonAdd">
-                      +
-                    </button>
-                  </div>
-                  </form>
-                  <!-- Quantity -->
 
                   <!-- Price -->
                   <p class="text-start text-md-center">
-                    <strong>Price: <?= $val['price'] ?> $</strong>
+                    <strong>Cena: <?= $val['price'] ?> $</strong>
                   </p>
                   <!-- Price -->
                 </div>
@@ -98,20 +80,20 @@ include('header.php');
         <div class="col-md-12">
           <div class="card mb-4">
             <div class="card-header py-3">
-              <h5 class="mb-0">Summary</h5>
+              <h5 class="mb-0">Podsumowanie</h5>
             </div>
             <div class="card-body">
               <ul class="list-group list-group-flush">
 
                 <li class="list-group-item d-flex justify-content-between align-items-center px-0">
-                  Shipping
+                  Przesyłka
                   <span>Gratis</span>
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
                   <div>
-                    <strong>Total amount</strong>
+                    <strong>Łączna cena</strong>
                     <strong>
-                      <p class="mb-0">(including VAT)</p>
+                      <p class="mb-0">(wliczając VAT)</p>
                     </strong>
                   </div>
                   <span><strong>
@@ -123,15 +105,17 @@ include('header.php');
   if (isset(($_SESSION['login'])) && ($_SESSION['login'] == 1 || $_SESSION['login'] == 2)) {
 
   ?>
-              <button type="button" class="buttonBlue buttonSearch">
-                Go to checkout
-              </button>
+              <form method="post" action="checkout.php">
+                <button type="submit" class="buttonBlue buttonSearch">
+                  Przejdź do płatności
+                </button>
+              </form>
   <?php
   }
   else{
     ?>
     <a href="login.php" class="buttonBlue buttonSearch">
-    Zalogowane wymagane do zakupu
+    Zalogowanie wymagane do zakupu
   </a>
   <?php
   }
