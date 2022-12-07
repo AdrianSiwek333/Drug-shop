@@ -25,7 +25,6 @@ include('header.php');
                         <div class="col-lg-6 col-md-7 col-sm-6">
                             <h4 class="box-title mt-5">Opis Produktu</h4>
                             <p><?= $row['description'] ?></p>
-                            <p>Ilość w magazynie: <?= $row['quantity'] ?></p>
 
                             <h2 class="mt-4">
                                 Cena: <?= $row['price'] ?>$
