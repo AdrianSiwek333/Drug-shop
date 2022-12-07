@@ -62,7 +62,6 @@ CREATE TABLE invoice(
     fname varchar(60) not null,
     lname varchar(60) not null,
     town varchar(60) not null, 
-    address varchar(60) not null,
     PRIMARY KEY(invoice_id)
 );
 
