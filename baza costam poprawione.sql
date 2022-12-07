@@ -4,7 +4,6 @@ use shop;
 
 CREATE TABLE products(
     product_id int AUTO_INCREMENT not null,
-    quantity int unsigned not null,
     category_id int not null,
     price double(7,2),
     image blob not null,
@@ -32,7 +31,6 @@ CREATE TABLE orders(
     order_id int AUTO_INCREMENT not null,
     product_id int not null,
     user_id int not null,
-    order_quantity int unsigned not null,
     order_date date not null,
     PRIMARY key(order_id)
     );
@@ -86,22 +84,22 @@ INSERT INTO categories(category_name, description) VALUES
 ('Antybiotyki', 'Pokonają każdego wirusa'),
 ('Suplementy', 'Na codziennie dbanie o zdrówko');
 
-INSERT INTO products(product_name, price, quantity, category_id, image, description) VALUES
-('Pigula 3002', 20, 10, 1, 'pictures/pigula3002.jpg','Idealne na ból głowy, szybko i skutecznie zwalczają silne bóle spowodowane nawet zmianą ciśnienia!'),
-('Bernadrill', 70, 30, 3, 'pictures/bernadrill.jpg','Coraz bardziej popularny lek bez recepty, dobrze sprawdza się w przypadku kaszlu nie tylko suchego, ale również mokrego.'),
-('Ohio', 60, 30, 3, 'pictures/ohio.jpg','Ohio'),
-('The Zbuczyn Special', 50, 5, 3, 'pictures/special.jpg','Killer'),
-('Polski Lean', 150, 20, 2, 'pictures/polski lean.jpg','Smakołyki'),
-('Neptunki', 34.99, 99, 5, 'pictures/neptunki.jpg','Witaminy dla dzieci'),
-('Antibioticos Banditos', 79.99, 25, 4,'pictures/antibioticos banditos.jpg','Na ciężkie batelie z chorobą'),
-('Rumianek', 199.99, 200, 3, 'pictures/rumianek.jpg', 'Coby się człowiek uspokoił'),
-('Szałwia', 134.99, 100, 3, 'pictures/szalwia.jpg', 'Idealna do robienia z niej naparów. Pomga na problemy z potem, żołądkiem a nawet z cukrzycą!'),
-('Novoscorbin', 49.99, 15, 1, 'pictures/novoscorbin.jpg', 'Witaminki dla każdego'),
-('Syrop 2077', 59.99, 20, 2, 'pictures/syrop2077.jpg', 'Do sprite'),
-('Lisak', 9.99, 220, 5, 'pictures/lisak.jpg','Na gardełko wporzo'),
-('Sok z gumijerzyn', 29.99, 15, 2, 'pictures/sok.jpg', 'Nożnie wyciskany'),
-('Kociołex', 42.01, 19, 4, 'pictures/koxiolex.jpg', 'Leczy uzależnienia'),
-('Zuplement', 349.11, 3, 5, 'pictures/zuplement.jpg', 'Nadaje się do stosowania codziennie u dorosłych, nieodpowiedni dla dzieci.');
+INSERT INTO products(product_name, price, category_id, image, description) VALUES
+('Pigula 3002', 20, 1, 'pictures/pigula3002.jpg','Idealne na ból głowy, szybko i skutecznie zwalczają silne bóle spowodowane nawet zmianą ciśnienia!'),
+('Bernadrill', 70, 3, 'pictures/bernadrill.jpg','Coraz bardziej popularny lek bez recepty, dobrze sprawdza się w przypadku kaszlu nie tylko suchego, ale również mokrego.'),
+('Ohio', 60, 3, 'pictures/ohio.jpg','Ohio'),
+('The Zbuczyn Special', 50, 3, 'pictures/special.jpg','Killer'),
+('Polski Lean', 150, 2, 'pictures/polski lean.jpg','Smakołyki'),
+('Neptunki', 34.99, 5, 'pictures/neptunki.jpg','Witaminy dla dzieci'),
+('Antibioticos Banditos', 79.99, 4,'pictures/antibioticos banditos.jpg','Na ciężkie batelie z chorobą'),
+('Rumianek', 199.99, 3, 'pictures/rumianek.jpg', 'Coby się człowiek uspokoił'),
+('Szałwia', 134.99, 3, 'pictures/szalwia.jpg', 'Idealna do robienia z niej naparów. Pomga na problemy z potem, żołądkiem a nawet z cukrzycą!'),
+('Novoscorbin', 49.99, 1, 'pictures/novoscorbin.jpg', 'Witaminki dla każdego'),
+('Syrop 2077', 59.99, 2, 'pictures/syrop2077.jpg', 'Do sprite'),
+('Lisak', 9.99, 5, 'pictures/lisak.jpg','Na gardełko wporzo'),
+('Sok z gumijerzyn', 29.99, 2, 'pictures/sok.jpg', 'Nożnie wyciskany'),
+('Kociołex', 42.01, 4, 'pictures/koxiolex.jpg', 'Leczy uzależnienia'),
+('Zuplement', 349.11, 5, 'pictures/zuplement.jpg', 'Nadaje się do stosowania codziennie u dorosłych, nieodpowiedni dla dzieci.');
 
 
 INSERT INTO posts (title, text, image, type) VALUES
