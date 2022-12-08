@@ -29,9 +29,11 @@ CREATE TABLE categories(
 
 CREATE TABLE orders(
     order_id int AUTO_INCREMENT not null,
-    product_id int not null,
     user_id int not null,
     order_date date not null,
+    total_price double (7,2),
+    fname varchar(60) not null,
+    lname varchar(60) not null,
     PRIMARY key(order_id)
     );
 
@@ -54,27 +56,21 @@ CREATE TABLE contact(
     PRIMARY KEY(contact_id)
     );
 
-CREATE TABLE invoice(
-    invoice_id int AUTO_INCREMENT not null,
+CREATE TABLE order_info(
+    order_info_id int AUTO_INCREMENT not null,
     order_id int not null,
-    user_id int not null,
-    total_price double (7,2),
-    fname varchar(60) not null,
-    lname varchar(60) not null,
-    town varchar(60) not null, 
-    PRIMARY KEY(invoice_id)
+    product_id int not null,
+    PRIMARY KEY(order_info_id)
 );
 
 ALTER TABLE `orders` ADD INDEX(`user_id`);
 ALTER TABLE `orders` ADD FOREIGN KEY (user_id) REFERENCES `users`(user_id);
-ALTER TABLE `orders` ADD INDEX(`product_id`);
-ALTER TABLE `orders` ADD FOREIGN KEY (user_id) REFERENCES `products`(product_id);
 ALTER TABLE `products` ADD INDEX(`category_id`);
 ALTER TABLE `products` ADD FOREIGN KEY (`category_id`) REFERENCES `categories`(category_id);
-ALTER TABLE `invoice` ADD INDEX(`order_id`);
-ALTER TABLE `invoice` ADD FOREIGN KEY (`order_id`) REFERENCES `orders`(order_id);
-ALTER TABLE `invoice` ADD INDEX(`user_id`);
-ALTER TABLE `invoice` ADD FOREIGN KEY (`user_id`) REFERENCES `users`(user_id);
+ALTER TABLE `order_info` ADD INDEX(`order_id`);
+ALTER TABLE `order_info` ADD FOREIGN KEY (`order_id`) REFERENCES `orders`(order_id);
+ALTER TABLE `order_info` ADD INDEX(`product_id`);
+ALTER TABLE `order_info` ADD FOREIGN KEY (`product_id`) REFERENCES `products`(product_id);
   
 INSERT INTO categories(category_name, description) VALUES
 ('Piguły', 'Bardzo smaczne'),
