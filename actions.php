@@ -8,6 +8,7 @@ if($action_type=='add_item')
 	$quantity = $_GET['quantity'];
 	$price = $_GET['price'];
 	$image=$_GET['image'];
+	$description=$_GET['description'];
 
 	$product_arr = array(
 		'product_id'=>$id,
@@ -15,6 +16,7 @@ if($action_type=='add_item')
 		'quantity'=>$quantity,
 		'price'=>$price,
 		'image'=>$image,
+		'description'=>$description,
 	);
 
 	if(!empty($_SESSION['cart']))

@@ -1,5 +1,6 @@
 <?php
 
+
 if (isset($_POST["produkt"])) {
 
     setcookie("produkt", $_POST['produkt'], time() + (3600));
@@ -63,23 +64,24 @@ if (isset($_POST['login'])) {
     if ($user) {
         if (password_verify($password, $user['password'])) {
             if($user['user_type']=='noob'){
+                $_SESSION['user_idx']=$user['user_id'];
                 $napis= 'witaj noobie';
                 setcookie("login", 1, time() + 86400);
-                header("location:index.php");
+                header("location: index.php");
+                exit;
             }
             else{
+                $_SESSION['user_idx']=$user['user_id'];
                 $napis = 'witaj adminie';
                 setcookie("login", 2, time() + 86400);
-                header("location:index.php");
+                header("location: index.php");
+                exit;
             }
-
-            
-
         } else {
-            $napis = "bledne dane";
+            $napis = "błędne dane";
         }
     } else {
-        $napis = "bledne dane";
+        $napis = "błędne dane";
     }
 } else {
     $napis = "";

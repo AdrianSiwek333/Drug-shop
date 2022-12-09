@@ -17,11 +17,11 @@
               
               <form method="post">
               <div class="form-outline form-white mb-4">
-                <input type="email" name="email" class="form-control form-control-lg" />
+                <input type="email" name="email" class="form-control form-control-lg" required/>
                 <div class="form-label" for="email">Email</div>
               
               <div class="form-outline  form-white mb-4">
-                <input type="password" name="password" class="form-control  form-control-lg" />
+                <input type="password" name="password" class="form-control  form-control-lg" required/>
                 <div class="form-label" for="password">Hasło</div>
               </div>
               <button class="buttonBlue buttonSearch" type="submit" name="register">Zarejestruj</button>

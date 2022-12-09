@@ -1,10 +1,6 @@
 <?php
 include('header.php');
-/*if(!isset($_SESSION['login'])){
-    header('location:index.php');
-}
-if($_SESSION['login']!=2){
-}*/
+include('admin-verification.php');
 ?>
 <style>
     main{

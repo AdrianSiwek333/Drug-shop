@@ -1,133 +1,135 @@
 <?php
 include('header.php');
+if(!isset($_SESSION['cart']) || $_SESSION['cart']==null){
+    header("Location: index.php");
+}
 ?>
+    <script>
+        function numOnly(event) {
+            var key = event.keyCode;
+            return ((key >= 48 && key <= 57) || (key >= 96 && key <= 105) || key == 8 || key == 13 || key == 17);
+        };
+    </script>
+    <style>
+        label::before {
+            visibility: hidden;
+        }
 
-<style>
-    label::before{
-        visibility: hidden;
-    }
-    label::after{
-        visibility: hidden;
-    }
-</style>
+        label::after {
+            visibility: hidden;
+        }
+    </style>
 
-<div class="container">
-    <div class="py-5 text-center">
-        <img class="d-block mx-auto mb-4" src="https://getbootstrap.com/docs/4.3/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-        <h2>Płatność</h2>
-    </div>
-    <div class="row">
-        <div class="col-md-4 order-md-2 mb-4">
-            <h4 class="d-flex justify-content-between align-items-center mb-3">
-                <span class="text-muted">Twój koszyk</span>
-                <span class="badge badge-secondary badge-pill">3</span>
-            </h4>
-            <ul class="list-group mb-3 sticky-top">
-                <li class="list-group-item d-flex justify-content-between lh-condensed">
-                    <div>
-                        <h6 class="my-0"><?php if(isset($_SESSION['cart'])) ?></h6>
-                        <small class="text-muted">Brief description</small>
-                    </div>
-                    <span class="text-muted">$12</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between lh-condensed">
-                    <div>
-                        <h6 class="my-0">Second product</h6>
-                        <small class="text-muted">Brief description</small>
-                    </div>
-                    <span class="text-muted">$8</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between lh-condensed">
-                    <div>
-                        <h6 class="my-0">Third item</h6>
-                        <small class="text-muted">Brief description</small>
-                    </div>
-                    <span class="text-muted">$5</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between">
-                    <span>Total (USD)</span>
-                    <strong>$20</strong>
-                </li>
-            </ul>
+    <div class="container">
+        <div class="py-5 text-center">
+            <h2>Płatność</h2>
         </div>
-        <div class="col-md-8 order-md-1">
-            <h4 class="mb-3">Billing address</h4>
-            <form class="needs-validation" novalidate="">
-                <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <label for="firstName">First name</label>
-                        <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
-                        <div class="invalid-feedback"> Valid first name is required. </div>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label for="lastName">Last name</label>
-                        <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
-                        <div class="invalid-feedback"> Valid last name is required. </div>
-                    </div>
-                </div>
-                <div class="mb-3">
-                    <label for="username">Username</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">@</span>
+
+        <div class="row">
+            <div class="col-md-4 order-md-2 mb-4">
+                <h4 class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="text-muted">Twój koszyk</span>
+                    <span class="badge badge-secondary badge-pill">3</span>
+                </h4>
+                <?php
+                $Total = 0;
+                if (isset($_SESSION['cart'])) {
+                foreach ($_SESSION['cart'] as $key => $val) {
+                $totalPrice = $val['price'];
+                $Total = $Total + $totalPrice;
+                ?>
+                <ul class="list-group mb-3 sticky-top">
+                    <li class="list-group-item d-flex justify-content-between lh-condensed">
+                        <div>
+                            <h6 class="my-0"><?php echo $val['product_name']; ?></h6>
+                            <img style="height: auto; max-width: 200px;" src="<?php echo $val['image']; ?>"
+                                 alt="Zdjęcie produktu">
                         </div>
-                        <input type="text" class="form-control" id="username" placeholder="Username" required="">
-                        <div class="invalid-feedback" style="width: 100%;"> Your username is required. </div>
+                        <span class="text-muted"><?php echo $val['price']; ?> $</span>
+                    </li>
+                    <?php
+                    }
+                    ?>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span>Łączna cena (USD)</span>
+                        <strong><?php echo $Total; ?> $</strong>
+                        <?php
+                        }
+                        ?>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-8 order-md-1">
+                <h4 class="mb-3">Informacje rozliczeniowe</h4>
+                <form method="post" class="needs-validation" action="checkout.php">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="firstName">Imię</label>
+                            <input type="text" name="fname" class="form-control" id="firstName" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="lastName">Nazwisko</label>
+                            <input type="text" name="lname" class="form-control" id="lastName" required>
+                        </div>
                     </div>
-                </div>
-                <div class="mb-3">
-                    <label for="email">Email <span class="text-muted">(Optional)</span></label>
-                    <input type="email" class="form-control" id="email" placeholder="you@example.com">
-                    <div class="invalid-feedback"> Please enter a valid email address for shipping updates. </div>
-                </div>
-                <hr class="mb-4">
-                <h4 class="mb-3">Payment</h4>
-                <div class="d-block my-3">
-                    <div class="custom-control custom-radio">
-                        <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked="" required="">
-                        <label class="custom-control-label" for="credit">Credit card</label>
+                    <div class="mb-3">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" class="form-control" id="email" required>
                     </div>
-                    <div class="custom-control custom-radio">
-                        <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required="">
-                        <label class="custom-control-label" for="debit">Debit card</label>
+                    <hr class="mb-4">
+                    <h4 class="mb-3">Dane karty kredytowej</h4>
+                    <div class="row">
+                        <div class="mb-3">
+                            <label for="cc-number">Numer karty kredytowej</label>
+                            <input type="text" class="form-control" maxlength="16" onkeydown="return numOnly(event);" id="cc-number" required>
+                        </div>
                     </div>
-                    <div class="custom-control custom-radio">
-                        <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required="">
-                        <label class="custom-control-label" for="paypal">PayPal</label>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="cc-expiration">Data ważności</label>
+                            <input type="date" class="form-control" id="cc-expiration" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="cc-cvv">CVV / CVC (Kod bezpieczeństwa)</label>
+                            <input type="text" class="form-control" id="cc-cvv"  onkeydown="return numOnly(event);" maxlength="3" required>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <label for="cc-name">Name on card</label>
-                        <input type="text" class="form-control" id="cc-name" placeholder="" required="">
-                        <small class="text-muted">Full name as displayed on card</small>
-                        <div class="invalid-feedback"> Name on card is required </div>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label for="cc-number">Credit card number</label>
-                        <input type="text" class="form-control" id="cc-number" placeholder="" required="">
-                        <div class="invalid-feedback"> Credit card number is required </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-3 mb-3">
-                        <label for="cc-expiration">Expiration</label>
-                        <input type="text" class="form-control" id="cc-expiration" placeholder="" required="">
-                        <div class="invalid-feedback"> Expiration date required </div>
-                    </div>
-                    <div class="col-md-3 mb-3">
-                        <label for="cc-cvv">CVV</label>
-                        <input type="text" class="form-control" id="cc-cvv" placeholder="" required="">
-                        <div class="invalid-feedback"> Security code required </div>
-                    </div>
-                </div>
-                <hr class="mb-4">
-                <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
-            </form>
+                    <hr class="mb-4">
+                    <button name="checkoutBtn" class="btn btn-primary btn-lg btn-block" type="submit">Continue to
+                        checkout
+                    </button>
+                </form>
+                <?php
+                if (isset($_POST['checkoutBtn'])) {
+                    $date = date('Y-m-d');
+                    $time = date('H:i:s');
+                    $fname = $_POST['fname'];
+                    $lname = $_POST['lname'];
+                    $email = $_POST['email'];
+                    $user_id = $_SESSION['user_idx'];
+                    $sql_stmt = "INSERT INTO orders (user_id, order_date, order_time, total_price, fname, lname) VALUES (
+                    '" . $user_id . "', '" . $date . "', '".$time."', '" . $Total . "','" . $fname . "','" . $lname . "');";
+                    $commit = $db_con->query($sql_stmt);
+                    $order_id_stmt = $db_con->query("SELECT * from ORDERS where user_id like " . $user_id . " AND order_date like '" . $date . "' AND order_time like '" . $time . "' AND total_price like '" . $Total . "%%%' AND fname like '" . $fname . "'  AND lname like '" . $lname . "';");
+                    $result=$order_id_stmt->fetch();
+                    $result_oid = $result['order_id'];
+                    if (isset($_SESSION['cart'])) {
+                        foreach ($_SESSION['cart'] as $key => $val) {
+                            $sql_oid = "INSERT INTO order_info (order_id, product_id) VALUES (
+                                                      '".$result_oid."', '".$val['product_id']."')";
+                            $oinfocommit=$db_con->query($sql_oid);
+                        }
+                    }
+                    $_POST=array();
+                    unset($_SESSION['cart']);
+                    $page = $_SERVER['index.php'];
+                    echo '<meta http-equiv="Refresh" content="0;' . $page . '">';
+                }
+                ?>
+            </div>
         </div>
     </div>
-</div>
-<br>
+    <br>
 <?php
 include('footer.php');
 ?>

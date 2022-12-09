@@ -1,5 +1,6 @@
 <?php
 include('header.php');
+include('admin-verification.php');
 ?>
     <main>
         <style>
@@ -46,7 +47,14 @@ include('header.php');
         </form>
         <?php
         if (isset($_POST['del'])) {
+            $o_id = $db_con->query("SELECT * FROM orders WHERE user_id='" .$_POST['user_id']."'");
+            $o_id = $o_id->fetch();
+            $o_id_val = $o_id[0];
+            $sql_order_info = "DELETE FROM order_info WHERE order_id='".$o_id_val."'";
+            $sql_stmt_order = "DELETE FROM orders where user_id='".$_POST['user_id']."'";
             $sql_stmt = "DELETE FROM users WHERE user_id='" . $_POST['user_id'] . "'";
+            $commit2 = $db_con->query($sql_order_info);
+            $commit2 = $db_con->query($sql_stmt_order);
             $commit = $db_con->query($sql_stmt);
             $page = $_SERVER['PHP_SELF'];
             echo '<meta http-equiv="Refresh" content="0;' . $page . '">';
