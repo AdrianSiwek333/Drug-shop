@@ -32,7 +32,7 @@ CREATE TABLE orders(
     user_id int not null,
     order_date date not null,
     total_price double (7,2),
-    date datetime not null,
+    time datetime not null,
     fname varchar(60) not null,
     lname varchar(60) not null,
     PRIMARY key(order_id)
