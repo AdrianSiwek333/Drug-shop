@@ -1,10 +1,10 @@
 <?php
 include('header.php'); ?>
 <main>
-<section style="background-color: #eee;">
+<section>
   <div class="container py-5">
   <?php
-    if (isset($_SESSION['favourite'])) {
+    if (isset($_SESSION['favourite']) && !empty($_SESSION['favourite'])) {
       foreach ($_SESSION['favourite'] as $key => $val) {
           ?>
     <div class="row justify-content-center mb-3">
@@ -66,7 +66,20 @@ include('header.php'); ?>
     <?php
       }
     }
+    else{
       ?>
+      <div class="row justify-content-center align-items-center">
+        <div class="col-6">
+    <h1>Twoje ulubione są puste</h1>
+    <p>Wygląda na to, że nie dodałeś jeszcze nic do ulubionych. Może spodoba Ci się któryś z naszych produktów?
+    </div>
+    <div class="col-6">
+    <a href="nasze-produkty.php" class="buttonBlue">Nasze produkty</a>
+    </div>
+    </div>
+      <?php
+    }
+    ?>
   </div>
 </section>
 </main>
