@@ -59,6 +59,9 @@
                     if (isset($_SESSION['login']) && $_SESSION['login'] == 2) {
                     echo "<li class='nav-item'> <a class='nav-link' href='adminpanel.php'>Panel Admina</a></li>";
                     }
+                    if(isset($_SESSION['login']) && ($_SESSION['login']==1 || $_SESSION['login']==2)){
+                        echo "<li class='nav-item'> <a class='nav-link' href='my_orders.php'>Moje zamówienia</a></li>";
+                    }
                         ?>
                         <li class="nav-item">
                             <a class="nav-link" href="o-nas.php">O Nas</a>
