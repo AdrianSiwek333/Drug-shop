@@ -120,10 +120,8 @@ if(!isset($_SESSION['cart']) || $_SESSION['cart']==null){
                             $oinfocommit=$db_con->query($sql_oid);
                         }
                     }
-                    $_POST=array();
-                    unset($_SESSION['cart']);
-                    $page = $_SERVER['index.php'];
-                    echo '<meta http-equiv="Refresh" content="0;' . $page . '">';
+                    echo "<script> location.href='order-download.php'; </script>";
+                    exit;
                 }
                 ?>
             </div>
