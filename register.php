@@ -29,10 +29,14 @@
               </form>
 
 
-              <p class="mb-0">Masz konto? <a href="login.php" class="text-dark fw-bold">Zaloguj się</a>
+              <p class="mb-0">Masz konto? <a href="login.php" class="text-dark fw-bold">Zaloguj się</a><br><br><br>
                 
                   <?php if(isset($_POST['register'])){
-                echo "<h1>" . $rejestracja . "</h1>";
+                    ?>
+                <div class="row justify-content-center">
+                <h1 class="fw-bold mb-2 text-uppercase"><?=$rejestracja?></h1>
+                  </div>
+                <?php
                   }
                 ?>
             </div>
