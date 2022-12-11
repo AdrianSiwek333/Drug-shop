@@ -41,6 +41,9 @@
                                 <p>Sposób wyświetlania</p>
                                 <input type="radio" id="kafelki" value="kafelki" name="wyswietl"><label for="kafelki"><span>Kafelki</span></label>
                                 <input type="radio" id="lista" value="lista" name="wyswietl"><label for="lista"><span>Lista</span></label>
+                                <p>Sortuj według</p>
+                                <input type="radio" id="rosn" value="rosn" name="sortuj"><label for="rosn"><span>Cena rosnąco</span></label>
+                                <input type="radio" id="mal" value="mal" name="sortuj"><label for="mal"><span>Cena malejąco</span></label>
                                 <input class="buttonClear" type="reset" value="Wyczyść filtr">
                                 <button class="buttonBlue buttonSearch" type="submit">Szukaj</button>
                             </form>
@@ -66,10 +69,23 @@
                                 if($_POST['price_end']==null){
                                     $_POST['price_end']=$valMaxPrice;
                                 }
-                                if(!isset($_POST['categories'])){
-                                    $stmt = $db_con->query("SELECT * FROM products WHERE product_name like '".$_POST['search']."%' AND price BETWEEN '".$_POST['price_begin']."' AND '".$_POST['price_end']."'");
-                                }else{
+                                if(isset($_POST['categories']) && !isset($_POST['sortuj'])){
                                     $stmt = $db_con->query("SELECT * FROM products WHERE product_name like '".$_POST['search']."%' AND price BETWEEN '".$_POST['price_begin']."' AND '".$_POST['price_end']."' AND category_id like '".$_POST['categories']."'");
+                                }
+                                else if(isset($_POST['categories']) && isset($_POST['sortuj']) && $_POST['sortuj']=='rosn'){
+                                    $stmt = $db_con->query("SELECT * FROM products WHERE product_name like '".$_POST['search']."%' AND price BETWEEN '".$_POST['price_begin']."' AND '".$_POST['price_end']."' AND category_id like '".$_POST['categories']."' ORDER BY price");
+                                }
+                                else if(!isset($_POST['categories']) && isset($_POST['sortuj']) && $_POST['sortuj']=='rosn'){
+                                    $stmt = $db_con->query("SELECT * FROM products WHERE product_name like '".$_POST['search']."%' AND price BETWEEN '".$_POST['price_begin']."' AND '".$_POST['price_end']."' ORDER BY price");
+                                }
+                                else if(isset($_POST['categories']) && isset($_POST['sortuj']) && $_POST['sortuj']=='mal'){
+                                    $stmt = $db_con->query("SELECT * FROM products WHERE product_name like '".$_POST['search']."%' AND price BETWEEN '".$_POST['price_begin']."' AND '".$_POST['price_end']."' AND category_id like '".$_POST['categories']."' ORDER BY price desc");
+                                }
+                                else if(!isset($_POST['categories']) && isset($_POST['sortuj']) && $_POST['sortuj']=='mal'){
+                                    $stmt = $db_con->query("SELECT * FROM products WHERE product_name like '".$_POST['search']."%' AND price BETWEEN '".$_POST['price_begin']."' AND '".$_POST['price_end']."' ORDER BY price desc");
+                                }
+                                else{
+                                    $stmt = $db_con->query("SELECT * FROM products WHERE product_name like '".$_POST['search']."%' AND price BETWEEN '".$_POST['price_begin']."' AND '".$_POST['price_end']."'");
                                 }
                             }
                             while ($row = $stmt->fetch()) {
