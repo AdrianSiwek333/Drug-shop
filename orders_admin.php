@@ -8,6 +8,7 @@ $id_max = $db_con->query("SELECT MAX(user_id) from users");
 $id_max = $id_max->fetch();
 $id_max_value = $id_max[0];
 ?>
+ <div class="container">
 <main>
     <script>
         function numOnly(event) {
@@ -19,11 +20,9 @@ $id_max_value = $id_max[0];
         label::before {
             visibility: hidden;
         }
-        table,thead,td{
-            border: solid 1px black;
-        }
+      
     </style>
-    <table>
+  <table class="table table-bordered">
         <thead>
             <th>order_id</th>
             <th>user_id</th>
@@ -54,9 +53,9 @@ $id_max_value = $id_max[0];
                     <input type='hidden' name='total_price' value='" . $row['total_price'] . "'>
                     <input type='hidden' name='fname' value='" . $row['fname'] . "'>
                     <input type='hidden' name='lname' value='" . $row['lname'] . "'>
-                    <button name='edit' type='Submit'>Edytuj produkt</button>
+                    <button name='edit' type='Submit' class='buttonAdd' >Edytuj produkt</button>
 </form></td>";
-            echo "<td><form method='post' action='" . $_SERVER['PHP_SELF'] . "'><input type='hidden' name='order_id' value='" . $row['order_id'] . "'><button name='del' type='Submit'>Usuń zamówienie</button></form></td>";
+            echo "<td><form method='post' action='" . $_SERVER['PHP_SELF'] . "'><input type='hidden' name='order_id' value='" . $row['order_id'] . "'><button name='del' class='buttonClear' type='Submit'>Usuń zamówienie</button></form></td>";
             echo "</tr>";
         }
         ?>
@@ -71,6 +70,7 @@ $id_max_value = $id_max[0];
     echo '<meta http-equiv="Refresh" content="0;' . $page . '">';
     }
     if (isset($_POST['edit'])) {
+        echo "<div class='howToContact'>";
         echo "<form method='post' action='orders_edit_admin.php'>";
         echo "<input name='order_id_c' type='hidden' value='" . $_POST['order_id'] . "'>";
         echo "<label for='user_id'>Id użytkownika</label>";
@@ -89,7 +89,7 @@ $id_max_value = $id_max[0];
         echo "</form>";
     }
     ?>
-</main>
+</main></div>
 <?php
 include('footer.php');
 ?>
