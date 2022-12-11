@@ -8,6 +8,7 @@ $category_max = $db_con->query("SELECT MAX(category_id) from products");
 $category_max = $category_max->fetch();
 $category_max_value = $category_max[0];
 ?>
+  <div class="container">
 <main>
     <script>
         function numOnly(event) {
@@ -19,7 +20,9 @@ $category_max_value = $category_max[0];
         label::before {
             visibility: hidden;
         }
+     
     </style>
+    
     <table class="table table-bordered">
         <thead>
             <tr>
@@ -51,7 +54,7 @@ $category_max_value = $category_max[0];
                     <input type='hidden' name='category_id' value='" . $row['category_id'] . "'>
                     <input type='hidden' name='image' value='" . $row['image'] . "'>
                     <input type='hidden' name='description' value='" . $row['description'] . "'>
-                    <button name='edit' class='buttonBlue' type='Submit'>Edytuj produkt</button>
+                    <button name='edit' class='buttonedit' type='Submit'>Edytuj produkt</button>
                 </form>
                 </td>";
             echo "<td><form method='post' action='" . $_SERVER['PHP_SELF'] . "'><input type='hidden' name='product_id' value='" . $row['product_id'] . "'><button name='del' class='buttonClear' type='Submit'>Usuń produkt</button></form></td>";
@@ -60,7 +63,7 @@ $category_max_value = $category_max[0];
         ?>
     </table>
     <form method="post" action="product_admin.php">
-        <button name="addProduct" class="buttonBlue" type="submit">Dodaj nowy produkt</button>
+        <button name="addProduct" class="buttonedit" type="submit">Dodaj nowy produkt</button>
     </form>
     <?php
     if (isset($_POST['del'])) {
@@ -70,6 +73,7 @@ $category_max_value = $category_max[0];
         echo '<meta http-equiv="Refresh" content="0;' . $page . '">';
     }
     if (isset($_POST['edit'])) {
+        echo "<div class='howToContact'>";
         echo "<form method='post' action='product_edit_admin.php'>";
         echo "<input name='product_id_c' type='hidden' value='" . $_POST['product_id'] . "'>";
         echo "<label for='product_name'>Nazwa produktu</label>";
@@ -82,7 +86,7 @@ $category_max_value = $category_max[0];
         echo "<input type='text' name='image_c' id='image' value='" . $_POST['image'] . "' required>";
         echo "<label for='description'>Opis</label>";
         echo "<input type='text' name='description_c' id='description' value='" . $_POST['description'] . "'>";
-        echo "<button name='commit' type='submit'>Zaakceptuj zmiany</button>";
+        echo "<button name='commit' type='submit' class='buttonedit'>Zaakceptuj zmiany</button>";
         echo "</form>";
     }
     if (isset($_POST['addProduct'])) {
@@ -98,12 +102,12 @@ $category_max_value = $category_max[0];
         echo "<input type='text' name='image_a' id='image' placeholder='Ścieżka zdjęcia produktu' required><br>";
         echo "<label for='description'>Opis</label>";
         echo "<input type='text' name='description_a' id='description' placeholder='Opis produktu'><br>";
-        echo "<button type='submit' class='buttonBlue'>Dodaj produkt</button>";
+        echo "<button type='submit' class='buttonedit'>Dodaj produkt</button>";
         echo "</form>";
         echo "</div>";
     }
     ?>
-</main>
+</main></div>
 <?php
 include('footer.php');
 ?>
