@@ -48,9 +48,12 @@ include('kod.php');
                                 <div class="toRight">
                                         <input style="width=250px"type="submit" name="wyslij" value="Prześlij" class="formSubmit" /> 
                                         
-                                    </div>
-                                    <h1 style><?php if(isset($_POST['wyslij'])){echo $wyslano;}?></h1>
-                            </div>
+                                </div>
+                                <div style="text-align:center">
+                                <h1 class="fw-bold mb-2 text-uppercase"><?php if(isset($_POST['wyslij'])){echo $wyslano;}?></h1>
+                                </div>
+                                    
+                        </div>
                         </form>
                     </div>
                     
