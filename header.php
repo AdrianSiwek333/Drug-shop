@@ -57,29 +57,29 @@
                 <ul class="menu navbar-nav ms-auto">
                     <?php
                     if (isset($_SESSION['login']) && $_SESSION['login'] == 2) {
-                    echo "<li class='nav-item'> <a class='nav-link' href='adminpanel.php'>Panel Admina</a></li>";
+                    echo "<li class='nav-item'> <a class='nav-link' href='adminpanel.php'>Panel Admina <i class='bi bi-person'></i></a></li>";
                     }
                     if(isset($_SESSION['login']) && ($_SESSION['login']==1 || $_SESSION['login']==2)){
-                        echo "<li class='nav-item'> <a class='nav-link' href='my_orders.php'>Moje zamówienia</a></li>";
+                        echo "<li class='nav-item'> <a class='nav-link' href='my_orders.php'>Moje zamówienia <i class='bi bi-box-seam'></i></a></li>";
                     }
                         ?>
+                    
                         <li class="nav-item">
-                            <a class="nav-link" href="o-nas.php">O Nas</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="nasze-produkty.php">Nasze produkty</a>
+                            <a class="nav-link" href="nasze-produkty.php">Nasze produkty <i class="bi bi-cart"></i></a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="kontakt.php">Kontakt</a>
+                            <a class="nav-link" href="kontakt.php">Kontakt <i class="bi bi-telephone-inbound"></i></a>
                         </li>
+                        <a class="nav-link" href="favourite.php">Ulubione <i class="bi bi-heart"></i> </a>
+
                         <?php
                     if (isset(($_SESSION['login'])) && ($_SESSION['login'] == 1 || $_SESSION['login'] == 2)) {
 
                         ?>
                         <form method="post">
                             <li class="nav-item">
-                                <button type="submit" class="nav-link" name="wyloguj">Wyloguj</button>
+                                <button type="submit" class="nav-link" name="wyloguj">Wyloguj <i class="bi bi-box-arrow-in-right"></i></button>
                             </li>
                         </form>
 
@@ -88,17 +88,17 @@
                     } else {
                         ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="login.php">Zaloguj</a>
+                            <a class="nav-link" href="login.php">Zaloguj <i class="bi bi-box-arrow-in-right"></i></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="register.php">Rejestracja</a>
+                            <a class="nav-link" href="register.php">Rejestracja <i class="bi bi-person-plus"></i></a>
                         </li>
                         <?php
                     }
                     ?>
 
 
-                    <a class="nav-link" href="favourite.php">Ulubione <i class="bi bi-heart"></i> </a>
+                   
 
                     </li>
                     <li class="nav-item">
@@ -112,3 +112,5 @@
         </div>
     </nav>
 </header>
+
+
