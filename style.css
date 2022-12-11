@@ -304,6 +304,9 @@ input[type="radio"]:checked + label::after{
     background-color: #3ca3e6;
     border: solid #a1daff 5px;
 }
+table{
+    margin-top:20px;
+}
 .product .productsShowcase{
     display: none;
 }
