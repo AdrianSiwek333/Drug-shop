@@ -12,8 +12,8 @@
 
             <div class="mb-md-5 mt-md-4 pb-5">
 
-              <h2 class="fw-bold mb-2 text-uppercase">Register</h2>
-              <p class="text-white-50 mb-5">Please enter your login and password!</p>
+              <h2 class="fw-bold mb-2 text-uppercase">Rejestracja</h2>
+              <p class="text-black-50 mb-5">Proszę podać dane do rejestracji</p>
               
               <form method="post">
               <div class="form-outline form-white mb-4">
@@ -29,24 +29,24 @@
               </form>
 
 
-              <p class="mb-0">Masz konto? <a href="login.php" class="text-dark fw-bold">Zaloguj się</a><br><br><br>
+            
                 
                   <?php if(isset($_POST['register'])){
                     ?>
                 <div class="row justify-content-center">
                 <h1 class="fw-bold mb-2 text-uppercase"><?=$rejestracja?></h1>
-                  </div>
+                  </div> 
                 <?php
                   }
                 ?>
             </div>
-
+                  
             <div>
               
-              </p>
+          
             </div>
-
           </div>
+            <p class="mb-0">Masz konto? <a href="login.php" class="text-dark fw-bold">Zaloguj się</a>
         </div>
       </div>
     </div>
