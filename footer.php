@@ -26,7 +26,7 @@
                 <ul>
                     <li><i class="bi bi-phone"></i><span>34 373 28 22</span></li>
                     <li><i class="bi bi-envelope"></i><span>wsparcie@dob-med.com</span></li>
-                    <li><i class="bi bi-building"></i><span>Warszawa ul. Słodka 18</span></li>
+                    <li><i class="bi bi-building"></i><span>Zbuczyn ul. Celna 420</span></li>
                 </ul>
             </div>
         </div>
