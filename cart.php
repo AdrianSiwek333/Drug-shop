@@ -26,29 +26,25 @@ include('header.php');
                                 ?>
                                 <div class="card-body">
 
-                                    <!-- Single item -->
                                     <div class="row">
 
 
-                                        <!-- Single item -->
                                         <div class="row">
                                             <div class="col-lg-3 col-md-12 mb-4 mb-lg-0">
-                                                <!-- Image -->
                                                 <div class="bg-image hover-overlay hover-zoom ripple rounded"
                                                      data-mdb-ripple-color="light">
 
-                                                    <img class="w-100" src="<?= $val['image'] ?>">
+                                                    <img class="w-100 border border-dark rounded" src="<?= $val['image'] ?>">
 
                                                 </div>
-                                                <!-- Image -->
                                             </div>
 
                                             <div class="col-lg-5 col-md-6 mb-4 mb-lg-0">
-                                                <!-- Data -->
                                                 <p><strong>
                                                         <?= $val['product_name'] ?>
                                                     </strong></p>
                                                 <p></p>
+                                                <p><?=$val['description']?></p>
 
 
                                                 <a type="button"
@@ -60,17 +56,15 @@ include('header.php');
                                             </div>
 
                                             <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
-
-                                                <!-- Price -->
                                                 <p class="text-start text-md-center">
                                                     <strong>Cena: <?= $val['price'] ?> $</strong>
                                                 </p>
-                                                <!-- Price -->
                                             </div>
                                         </div>
-                                        <!-- Single item -->
                                     </div>
                                 </div>
+                                <hr>
+                                
                                 <?php
                             }
                         }
