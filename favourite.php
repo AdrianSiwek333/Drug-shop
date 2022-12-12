@@ -51,7 +51,7 @@ include('header.php'); ?>
                     <div class="col-2">
                     </div>
                       <div class="col-4 justify-content-right">
-                    <a href="actions.php?action_type=add_item&product_id=<?= $val['product_id'] ?>&product_name=<?= $val['product_name'] ?>&image=<?= $val['image'] ?>&quantity=1&price=<?= $val['price'] ?>"
+                      <a href="actions.php?action_type=add_item&product_id=<?= $row['product_id'] ?>&product_name=<?= $row['product_name'] ?>&image=<?= $row['image'] ?>&quantity=1&price=<?= $row['price'] ?>&description=<?=$row['description']?>"
                                     class="btn btn-dark btn-rounded mr-1"> Kup</a>
                       </div>
                       <div class="col-4">
