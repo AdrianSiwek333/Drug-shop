@@ -15,7 +15,7 @@ include('header.php'); ?>
               <div class="col-md-12 col-lg-3 col-xl-3 mb-4 mb-lg-0">
                 <div class="bg-image hover-zoom ripple rounded ripple-surface">
                   <img src="<?=$val['image']?>"
-                    class="w-100 border border-dark rounded" />
+                    class="w-100 border border-grey rounded" />
                   <a href="#!">
                     <div class="hover-overlay">
                       <div class="mask" style="background-color: rgba(253, 253, 253, 0.15);"></div>
