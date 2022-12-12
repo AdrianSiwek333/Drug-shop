@@ -53,7 +53,7 @@ $id_max_value = $id_max[0];
                     <input type='hidden' name='total_price' value='" . $row['total_price'] . "'>
                     <input type='hidden' name='fname' value='" . $row['fname'] . "'>
                     <input type='hidden' name='lname' value='" . $row['lname'] . "'>
-                    <button name='edit' type='Submit' class='buttonAdd' >Edytuj produkt</button>
+                    <button name='edit' type='Submit' class='buttonedit' >Edytuj produkt</button>
 </form></td>";
             echo "<td><form method='post' action='" . $_SERVER['PHP_SELF'] . "'><input type='hidden' name='order_id' value='" . $row['order_id'] . "'><button name='del' class='buttonClear' type='Submit'>Usuń zamówienie</button></form></td>";
             echo "</tr>";
