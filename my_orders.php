@@ -37,11 +37,13 @@ include('header.php'); ?>
             $orders_stmt = "SELECT * FROM products WHERE product_id IN (SELECT product_id FROM order_info WHERE order_id IN (SELECT order_id FROM orders WHERE user_id LIKE " . $_SESSION['user_idx'] . " ))";
             $orders = $db_con->query("SELECT * FROM products WHERE product_id IN (SELECT product_id FROM order_info WHERE order_id IN (SELECT order_id FROM orders WHERE user_id LIKE " . $_SESSION['user_idx'] . " ))");
             while ($order = $orders->fetch()) {
-                echo "<tr>";
-                echo "<td>" . $order['product_name'] . "</td>";
-                echo "<td>" . "<img src='" . $order['image'] . "' alt='Zdjęcie produktu'>" . "</td>";
-                echo "<td>" . "<a class='buttonAdd btn' href='" . $order['image'] . "' download>Pobierz zdjęcie</a>" . "</td>";
-                echo "</tr>";
+                ?>
+                <tr>
+                <td><?=$order['product_name']?></td>
+                <td><img src="<?=$order['image']?>" class="border border-grey rounded" alt='Zdjęcie produktu'></td>
+                <td><a class='buttonAdd btn' href="<?=$order['image']?>" download>Pobierz zdjęcie</a></td>
+                </tr>
+            <?php
             }
 
             ?>
