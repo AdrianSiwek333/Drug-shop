@@ -136,9 +136,6 @@
                                                 <i class="fa fa-star"></i>
                                             </div>
                                             </div>
-                                            <div class="mt-1 mb-0 text-muted small">
-                                            <span>Kategoria</span>
-                                            </div>
                                             <p>
                                             <?=$row['description']?>
                                             </p>
