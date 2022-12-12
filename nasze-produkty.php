@@ -20,7 +20,7 @@
                     <div class="filter">
                         <div class="sidebar">
                             <form method="POST" action="nasze-produkty.php">
-                                <input type="text" name="search" class="searchInput">
+                                <input type="text" placeholder="Szukaj" name="search" class="searchInput">
                                 <div class="row">
                                     <div class="col-md-6">
                                         <input type="text" onkeydown="return numOnly(event);" inputmode="numeric" placeholder="od" min="1" name="price_begin" class="price priceBegin">
