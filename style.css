@@ -614,3 +614,71 @@ footer .menuBottom a:hover:after{
         justify-content: center;
     }
 }
+
+
+.bsp_row-underline{
+
+    content: "";
+
+border-bottom: 2px solid #3798db;
+margin-bottom: 30px;
+margin-top: 30px;
+
+
+}
+
+.bsp_deal-text{
+
+margin-left: -10px;
+font-size: 25px;
+margin-bottom: 10px;
+color: #000;
+font-weight: 700;
+}
+
+.bsp_view-all{
+
+    margin-right: -10px;
+font-size: 14px;
+    margin-top: 10px;
+    display: block;
+    margin: 0 auto;
+}
+
+.bsp_image {
+
+width: 300px !important;
+height: 200px !important;
+
+
+}
+
+.bsp_big-image{
+  box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0);
+border-radius: 5px;
+margin-top: 0px;
+
+
+}
+
+.bsp_padding-0{
+
+padding: 1px;
+}
+
+.bsp_bbb_item{
+
+max-width:300px;
+background-color: #fff;
+    box-shadow: 0px 1px 5px rgba(0,0,0,0.1);
+border: solid 1px #e8e8e8;
+min-height:500px;
+}
+
+.bsp_card-text{
+color: #3798db;
+text-align: center;
+}
+.bsp_card-title{
+    text-align:center;
+}
