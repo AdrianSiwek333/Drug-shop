@@ -35,7 +35,7 @@ include('header.php');
                                 class="btn fav btn-rounded mr-1" data-toggle="tooltip" name="favourite" data-original-title="Add to Fav"> <i class="bi bi-heart"></i></a>
 
 
-                                <a href="actions.php?action_type=add_item&product_id=<?= $row['product_id'] ?>&product_name=<?= $row['product_name'] ?>&image=<?= $row['image'] ?>&quantity=1&price=<?= $row['price'] ?>"
+                                <a href="actions.php?action_type=add_item&product_id=<?= $row['product_id'] ?>&product_name=<?= $row['product_name'] ?>&image=<?= $row['image'] ?>&quantity=1&price=<?= $row['price'] ?>&description=<?=$row['description']?>"
                                     class="btn btn-dark btn-rounded mr-1"> <i class="bi bi-bag cart"></i></a>
                             </form>
                             <h3 class="box-title mt-5"></h3>
