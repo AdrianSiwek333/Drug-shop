@@ -24,7 +24,7 @@
             </div>
             <div class="contact col-sm-12 col-md-4">
                 <ul>
-                    <li><i class="bi bi-phone"></i><span>34 373 28 22</span></li>
+                    <li><i class="bi bi-phone"></i><span>+48 420 111 000</span></li>
                     <li><i class="bi bi-envelope"></i><span>wsparcie@dob-med.com</span></li>
                     <li><i class="bi bi-building"></i><span>Zbuczyn ul. Celna 420</span></li>
                 </ul>
