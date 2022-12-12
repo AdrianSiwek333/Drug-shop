@@ -34,7 +34,7 @@ include('header.php');
                                                 <div class="bg-image hover-overlay hover-zoom ripple rounded"
                                                      data-mdb-ripple-color="light">
 
-                                                    <img class="w-100 border border-dark rounded" src="<?= $val['image'] ?>">
+                                                    <img class="w-100 border border-grey rounded" src="<?= $val['image'] ?>">
 
                                                 </div>
                                             </div>
